@@ -1,7 +1,7 @@
 #ifndef PROJETQWIRKLE_STRUCTURES_H
 #define PROJETQWIRKLE_STRUCTURES_H
-
 #include "Macro.h"
+#include "stdbool.h"
 
 typedef struct {
     char symbole;
