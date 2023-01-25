@@ -2,10 +2,4 @@
 #include "Macro.h"
 
 
-int main(){
 
-    int modenormal, modedegrade;
-
-
-
-}
