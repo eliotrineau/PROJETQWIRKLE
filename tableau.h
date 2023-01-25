@@ -5,4 +5,9 @@
 #include "Structures.h"
 #include "Bibliotheques.h"
 
+void pioche(Tuile pioche[35]);
+void initPiocheDegrade(Tuile pioche[35]);
+void initPiocheNormal(Tuile pioche[35]);
+
 #endif
+
