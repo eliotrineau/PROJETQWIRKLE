@@ -3,8 +3,9 @@
 
 
 int main(){
-    //Tuile pioche[35];
-    //pioche(pioche);
+    srand(time(NULL));
+    Tuile a[35];
+    pioche(a);
     return 0;
 }
 

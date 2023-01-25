@@ -2,40 +2,43 @@
 
 
 void pioche(Tuile pioche[35]){
-    int choix = 0;
-    int resultat = 0;
-    Tuile temporaire;
-    int variable = 0;
     printf("Vous jouez en mode degrade ou en mode normal ?\n(degrade : 0)\n(normal : 1)\n");
-    scanf("%d", &choix);
-    switch (choix) {
+    int b;
+    Tuile temporaire;
+    int variable = 36;
+    int resultat = 0;
+    scanf("%d",&b);
+    printf("choix : %d",b);
+
+    switch (b) {
         case 0: {
-            initPiocheDegrade(pioche);
+           initPiocheDegrade(pioche);
             for (int i = 0; i < DEGRADE; ++i) {
                 for (int j = 0; j < COULEUR; ++j) {
                     for (int k = 0; k < SYMBOLE; ++k) {
-                        variable = TDEGRADE;
                         resultat = rand() % variable;
                         temporaire = pioche[35];
                         pioche[35] = pioche[resultat];
                         pioche[resultat] = temporaire;
                         variable--;
+                        printf("%s", &pioche[i].symbole[SYMBOLE]);
+                        printf("%s", &pioche[i].couleur[COULEUR]);
                     }
                 }
-            }
-            break;
+            }break;
         }
         case 1:
             initPiocheNormal(pioche);
             for (int i = 0; i < NORMAL; ++i) {
                 for (int j = 0; j < COULEUR; ++j) {
                     for (int k = 0; k < SYMBOLE; ++k) {
-                        variable = TDEGRADE;
                         resultat = rand() % variable;
                         temporaire = pioche[35];
                         pioche[35] = pioche[resultat];
                         pioche[resultat] = temporaire;
                         variable--;
+                        printf("%s",&pioche[i].symbole[SYMBOLE]);
+                        printf("%s",&pioche[i].couleur[COULEUR]);
                     }
                 }
             }break;
@@ -45,13 +48,14 @@ void pioche(Tuile pioche[35]){
 
 void initPiocheDegrade(Tuile pioche[35]){
     for (int i = 0; i < SYMBOLE ;++i) {
-        strcpy(&pioche[i].symbole,"rond");
-        strcpy(&pioche[i+6].symbole,"croix");
-        strcpy(&pioche[i+12].symbole,"losange");
-        strcpy(&pioche[i+18].symbole,"carre");
-        strcpy(&pioche[i+24].symbole,"etoile");
-        strcpy(&pioche[i+30].symbole,"trefle");
+        strcpy(pioche[i].symbole,"rond");
+        strcpy(pioche[i+6].symbole,"croix");
+        strcpy(pioche[i+12].symbole,"losange");
+        strcpy(pioche[i+18].symbole,"carre");
+        strcpy(pioche[i+24].symbole,"etoile");
+        strcpy(pioche[i+30].symbole,"trefle");
     }
+
     for (int i = 0; i < COULEUR ;++i) {
         strcpy(&pioche[i * 6].couleur[COULEUR], "rouge");
         strcpy(&pioche[i * 6 + 1].couleur[COULEUR], "orange");
