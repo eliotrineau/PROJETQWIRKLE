@@ -9,12 +9,19 @@
 int main(){
     srand(time(NULL));
     Tuile a[TNORMALE];
+    DonneesJeu j;
+    j.nbJoueur = 2;
+    Joueur joueurs[4];
+    int* taille = NULL;
+    int degrade = TDEGRADE;
+    taille = &degrade;
     //Tuile t;
     //fonctionPiocheDegrade();
     //DegradeInit(a);
     //char couleur[CHARCOULEUR];
     //char symbole;
-    pioche(a);
+    //pioche(a);
+    distribuerTuiles(joueurs,a,taille,j);
     //test(a,t);
     //normalInit(a);
     //initPiocheDegrade(a);

@@ -7,6 +7,8 @@ void pioche(Tuile pioche[PIOCHETP]){
     Tuile temporaire;
     int variableDegrade = 36;
     int variableNormal = 108;
+    int tailleDegrade = TDEGRADE;
+    int tailleNormal = TNORMALE;
     scanf("%d",&choix);
     printf("choix : %d\n",choix);
 
@@ -20,9 +22,10 @@ void pioche(Tuile pioche[PIOCHETP]){
                         pioche[resultat] = temporaire;
                         variableDegrade--;
             }
-            for (int i = 0; i < TDEGRADE; ++i) {
-                printf("%s %d\n",pioche[i].couleurSymbole,i);
-            }break;
+            Tuile tuileAPiocher;
+            PiocherUneTuile(&tuileAPiocher, pioche, &tailleDegrade);   ///TEMPORAIRETEST
+            printf("Tuile piochée : %s\n", tuileAPiocher.couleurSymbole);   ///TEMPORAIRETEST
+            break;
         }
         case 1:
             normalInit(pioche);
@@ -33,9 +36,10 @@ void pioche(Tuile pioche[PIOCHETP]){
                         pioche[resultat] = temporaire;
                         variableNormal--;
             }
-            for (int i = 0; i < TNORMALE; ++i) {
-                printf("%s %d\n",pioche[i].couleurSymbole,i);
-            }break;
+            Tuile tuileAPiocher;
+            PiocherUneTuile(&tuileAPiocher, pioche, &tailleNormal);   ///TEMPORAIRETEST
+            printf("Tuile piochée : %s\n", tuileAPiocher.couleurSymbole);   ///TEMPORAIRETEST
+            break;
         default:break;
     }
 }
@@ -348,5 +352,43 @@ void verifCouleurNormal(Tuile tuile[TNORMALE],Tuile t){
 void test(Tuile tuile[DEGRADE],Tuile t){
     verifCouleurDegrade(tuile,t);
         verifCouleurNormal(tuile,t);
+}
+
+
+void PiocherUneTuile(Tuile* tuileAPiocher, Tuile pioche[], int* taille) {
+    if (*taille <= 0) {
+        printf("La pioche est vide\n");
+    }
+    int tuileAleatoireAPiocher = rand() % *taille;
+    *tuileAPiocher = pioche[tuileAleatoireAPiocher];
+    for (int i = tuileAleatoireAPiocher; i < *taille - 1; i++) {
+        pioche[i] = pioche[i + 1];
+    }
+    (*taille)--;
+}
+
+
+
+void distribuerTuiles(Joueur joueurs[], Tuile pioche[], int* taille, DonneesJeu jeu) {
+    Tuile tuileAPiocher;
+    DegradeInit(pioche);
+    int remplissage = 0;
+    int maxPupitre = PUPITRE;
+    for (int i = 0; i < jeu.nbJoueur; i++) {
+        printf("Joueur : %d\n",i+1);
+        for (int j = 0; j < PUPITRE; j++) {
+            do {
+                PiocherUneTuile(&tuileAPiocher, pioche, taille);
+                printf("%s\n",tuileAPiocher.couleurSymbole);
+                remplissage++;
+                if (remplissage >= jeu.nbJoueur*6){
+                    printf("Tous les pupitres de joueur sont pleins\n");
+                }
+            }
+            while (tuileAPiocher.tuileDistribue == -1);
+            tuileAPiocher.tuileDistribue = -1;
+            strcpy(&joueurs[i].pupitre[j],tuileAPiocher.couleurSymbole);
+        }
+    }
 }
 

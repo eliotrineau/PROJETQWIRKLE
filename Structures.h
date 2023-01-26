@@ -16,12 +16,16 @@ typedef struct {
     bool couleurVert; // bool pour verifier la couleur || l'attribuer
     bool couleurBleu; // bool pour verifier la couleur || l'attribuer
     bool couleurViolet; // bool pour verifier la couleur || l'attribuer
+    int tuileDistribue;
 }Tuile;
 
+typedef struct {
+    int nbJoueur;
+}DonneesJeu;
 
 
 typedef struct {
-    int pupitre[PUPITRE]; // tableau auto de taille 6 (main du joueur)
+    char pupitre[PUPITRE]; // tableau auto de taille 6 (main du joueur)
     int score; // score du joueur
     char nom[PSEUDO]; // pseudo du joueur
 }Joueur;
