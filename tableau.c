@@ -44,12 +44,12 @@ void pioche(Tuile pioche[PIOCHETP]){
 
 void initPiocheDegrade(Tuile pioche[PIOCHETP]){
     for (int i = 0; i < SYMBOLE ;++i) {
-        strcpy(pioche[i].symbole,"rond");
-        strcpy(pioche[i+6].symbole,"croix");
-        strcpy(pioche[i+12].symbole,"losange");
-        strcpy(pioche[i+18].symbole,"carre");
-        strcpy(pioche[i+24].symbole,"etoile");
-        strcpy(pioche[i+30].symbole,"trefle");
+        pioche[i].symbole = '1';
+        pioche[i+6].symbole = '2';
+        pioche[i+12].symbole = '3';
+        pioche[i+18].symbole = '4';
+        pioche[i+24].symbole = '5';
+        pioche[i+30].symbole = '6';
     }
 
     for (int i = 0; i < COULEUR ;++i) {
@@ -65,12 +65,12 @@ void initPiocheDegrade(Tuile pioche[PIOCHETP]){
 void initPiocheNormal(Tuile pioche[PIOCHETP]){
     for (int i = 0; i < NORMAL; ++i) {
         for (int j = 0; j < SYMBOLE ;++j) {
-            strcpy(pioche[j+36*i].symbole,"rond");
-            strcpy(pioche[j+6+36*i].symbole,"croix");
-            strcpy(pioche[j+12+36*i].symbole,"losange");
-            strcpy(pioche[j+18+36*i].symbole,"carre");
-            strcpy(pioche[j+24+36*i].symbole,"etoile");
-            strcpy(pioche[j+30+36*i].symbole,"trefle");
+            pioche[j+36*i].symbole = '1';
+            pioche[j+6+36*i].symbole = '2';
+            pioche[j+12+36*i].symbole = '3';
+            pioche[j+18+36*i].symbole = '4';
+            pioche[j+24+36*i].symbole = '5';
+            pioche[j+30+36*i].symbole = '6';
         }
         for (int k = 0; k < COULEUR ;++k) {
             strcpy(&pioche[k * 6+36*i].couleur[COULEUR], "\033[31m\033[0m");
