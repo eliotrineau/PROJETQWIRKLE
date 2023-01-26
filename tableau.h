@@ -6,8 +6,9 @@
 #include "Bibliotheques.h"
 
 void pioche(Tuile pioche[PIOCHETP]);
-void initPiocheDegrade(Tuile pioche[PIOCHETP]);
-void initPiocheNormal(Tuile pioche[PIOCHETP]);
+void DegradeInit(Tuile tuile[36]);
+void verifCouleurDegrade(Tuile tuile[DEGRADE],Tuile t);
+void test(Tuile tuile[DEGRADE],Tuile t);
 
 #endif
 

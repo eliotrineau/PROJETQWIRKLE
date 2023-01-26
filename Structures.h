@@ -6,9 +6,16 @@
 #include "Bibliotheques.h"
 
 typedef struct {
-    char symbole; // symbole de la tuile
-    char couleur[COULEUR]; // couleur de la tuile
+    char couleur[CHARCOULEUR];
+    char symbole[SYMBOLE];
+    char couleurSymbole[CHARCOULEUR]; // couleur de la tuile
     bool vide; // si la case du plateau est vide
+    bool couleurRouge; // bool pour verifier la couleur || l'attribuer
+    bool couleurOrange; // bool pour verifier la couleur || l'attribuer
+    bool couleurJaune; // bool pour verifier la couleur || l'attribuer
+    bool couleurVert; // bool pour verifier la couleur || l'attribuer
+    bool couleurBleu; // bool pour verifier la couleur || l'attribuer
+    bool couleurViolet; // bool pour verifier la couleur || l'attribuer
 }Tuile;
 
 

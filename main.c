@@ -7,12 +7,17 @@
 
 
 int main(){
-    //srand(time(NULL));
-    //Tuile a[PIOCHETP];
+    srand(time(NULL));
+    Tuile a[PIOCHETP];
+    Tuile t;
+    //fonctionPiocheDegrade();
+    //DegradeInit(a);
+    //char couleur[CHARCOULEUR];
+    //char symbole;
     //pioche(a);
-    //char a = 'c';
-    //printf("\033[33m%c\033[0m",a);
-
+    test(a,t);
+    //initPiocheDegrade(a);
+    //pioche2(a,PIOCHETP,&couleur,&symbole,COULEUR,SYMBOLE);
     return 0;
 }
 

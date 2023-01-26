@@ -9,8 +9,9 @@
 #define TDEGRADE 36
 #define TNORMALE 108
 #define NORMAL 3
-#define PIOCHETP 35
+#define PIOCHETP 36
 #define DEGRADE 1
+#define CHARCOULEUR 27
 
 /// rappel des couleurs ROUGE \033[31m
 /// ROUGE "\033[31mTEXTEAECRIRE\033[0m"
