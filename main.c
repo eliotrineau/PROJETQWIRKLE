@@ -8,14 +8,15 @@
 
 int main(){
     srand(time(NULL));
-    Tuile a[PIOCHETP];
-    Tuile t;
+    Tuile a[TNORMALE];
+    //Tuile t;
     //fonctionPiocheDegrade();
     //DegradeInit(a);
     //char couleur[CHARCOULEUR];
     //char symbole;
-    //pioche(a);
-    test(a,t);
+    pioche(a);
+    //test(a,t);
+    //normalInit(a);
     //initPiocheDegrade(a);
     //pioche2(a,PIOCHETP,&couleur,&symbole,COULEUR,SYMBOLE);
     return 0;
