@@ -69,12 +69,12 @@ void initPiocheDegrade(Tuile pioche[35]){
 void initPiocheNormal(Tuile pioche[35]){
     for (int i = 0; i < NORMAL; ++i) {
         for (int j = 0; j < SYMBOLE ;++j) {
-            strcpy(&pioche[j+36*i].symbole,"rond");
-            strcpy(&pioche[j+6+36*i].symbole,"croix");
-            strcpy(&pioche[j+12+36*i].symbole,"losange");
-            strcpy(&pioche[j+18+36*i].symbole,"carre");
-            strcpy(&pioche[j+24+36*i].symbole,"etoile");
-            strcpy(&pioche[j+30+36*i].symbole,"trefle");
+            strcpy(pioche[j+36*i].symbole,"rond");
+            strcpy(pioche[j+6+36*i].symbole,"croix");
+            strcpy(pioche[j+12+36*i].symbole,"losange");
+            strcpy(pioche[j+18+36*i].symbole,"carre");
+            strcpy(pioche[j+24+36*i].symbole,"etoile");
+            strcpy(pioche[j+30+36*i].symbole,"trefle");
         }
         for (int k = 0; k < COULEUR ;++k) {
             strcpy(&pioche[k * 6+36*i].couleur[COULEUR], "rouge");

@@ -6,12 +6,12 @@
 #include "string.h"
 
 
-void ajouterTuile (Tuile Plateau[12][26], int x, int y, char couleur[COULEUR], char symbole) {
+void ajouterTuile (Tuile Plateau[12][26], int x, int y, char couleur[COULEUR], char symbole[SYMBOLE]) {
     if (Plateau[x][y].couleur != ' ' || Plateau[x][y].symbole != ' ') {
         printf("Cette case est déjà occupée!\n");
     } else {
         strcpy(Plateau[x][y].couleur, couleur);
-        Plateau[x][y].symbole = symbole;
+        strcpy(Plateau[x][y].symbole,symbole);
     }
 }
 
@@ -28,7 +28,7 @@ void afficherPlateautest(Tuile Plateau[12][26]) {
     for (int i = 0; i < 12; i++) {
         printf("%d ", i+1);
         for (int j = 0; j < 26; j++) {
-            printf("[%s,%c]", Plateau[i][j].couleur, Plateau[i][j].symbole);
+            printf("[%s,%s]", Plateau[i][j].couleur, Plateau[i][j].symbole);
         }
         printf("\n");
     }
@@ -38,7 +38,7 @@ void initialiserPlateau(Tuile Plateau[12][26]) {
     for (int i = 0; i < 12; i++) {
         for (int j = 0; j < 26; j++) {
             strcpy(Plateau[i][j].couleur, " ") ;
-            Plateau[i][j].symbole = ' ';
+            strcpy(Plateau[i][j].symbole, ' ');
         }
     }
 }
@@ -108,7 +108,7 @@ int verifierTuile6max(Tuile Plateau[12][26], int x, int y) {
 void poserTuile(Tuile Plateau[12][26], int x, int y, char couleur, char symbole) {
     if (verifierTuile(Plateau, x, y) == 1) {
         strcpy(Plateau[x][y].couleur, couleur);
-        Plateau[x][y].symbole = symbole;
+        strcpy(Plateau[x][y].symbole,symbole);
         printf("Tuile posée avec succès!\n");
     } else {
         printf("Impossible de poser la tuile ici!\n");
