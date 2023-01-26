@@ -2,16 +2,15 @@
 #include "tableau.h"
 #include "stdbool.h"
 #include "Macro.h"
-
+#include "Bibliotheques.h"
 
 
 
 int main(){
     //srand(time(NULL));
-    //Tuile a[PIOCHETP];
+    //Tuile a[35];
     //pioche(a);
-    //char a = 'c';
-    //printf("\033[33m%c\033[0m",a);
+    printf("\033[31mBonjour, monde!\033[0m\n");
 
     return 0;
 }
@@ -25,3 +24,8 @@ int main(){
 //printf("y");
 //scanf("%d", &y)
 //ajouterTuile(Plateau,x,y,couleur, M)
+
+
+
+
+
