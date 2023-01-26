@@ -7,7 +7,7 @@
 typedef struct {
     char symbole; // symbole de la tuile
     char couleur[COULEUR]; // couleur de la tuile
-    bool vide; // si la case du plateau est vide
+    bool vide; // si la case du plateau est vide 0 vide 1 occupe
 }Tuile;
 
 
