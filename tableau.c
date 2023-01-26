@@ -53,12 +53,12 @@ void initPiocheDegrade(Tuile pioche[PIOCHETP]){
     }
 
     for (int i = 0; i < COULEUR ;++i) {
-        strcpy(&pioche[i * 6].couleur[COULEUR], "\033[31m\033[0m");
-        strcpy(&pioche[i * 6 + 1].couleur[COULEUR], "\033[38;2;255;165;0m\033[0m");
-        strcpy(&pioche[i * 6 + 2].couleur[COULEUR], "\033[33m\033[0m");
-        strcpy(&pioche[i * 6 + 3].couleur[COULEUR], "\033[32m\033[0m");
-        strcpy(&pioche[i * 6 + 4].couleur[COULEUR], "\033[34m\033[0m");
-        strcpy(&pioche[i * 6 + 5].couleur[COULEUR], "\033[35m\033[0m");
+        strcpy(pioche[i * 6].couleur, "\033[31m\033[0m");
+        strcpy(pioche[i * 6 + 1].couleur, "\033[38;2;255;165;0m\033[0m");
+        strcpy(pioche[i * 6 + 2].couleur, "\033[33m\033[0m");
+        strcpy(pioche[i * 6 + 3].couleur, "\033[32m\033[0m");
+        strcpy(pioche[i * 6 + 4].couleur, "\033[34m\033[0m");
+        strcpy(pioche[i * 6 + 5].couleur, "\033[35m\033[0m");
     }
 }
 
@@ -74,11 +74,11 @@ void initPiocheNormal(Tuile pioche[PIOCHETP]){
         }
         for (int k = 0; k < COULEUR ;++k) {
             strcpy(&pioche[k * 6+36*i].couleur[COULEUR], "\033[31m\033[0m");
-            strcpy(&pioche[k * 6 + 1+36*i].couleur[COULEUR], "\033[38;2;255;165;0m\033[0m");
-            strcpy(&pioche[k * 6 + 2+36*i].couleur[COULEUR], "\033[33m\033[0m");
-            strcpy(&pioche[k * 6 + 3+36*i].couleur[COULEUR], "\033[32m\033[0m");
-            strcpy(&pioche[k * 6 + 4+36*i].couleur[COULEUR], "\033[34m\033[0m");
-            strcpy(&pioche[k * 6 + 5+36*i].couleur[COULEUR], "\033[35m\033[0m");
+            strcpy(pioche[k * 6 + 1+36*i].couleur, "\033[38;2;255;165;0m\033[0m");
+            strcpy(pioche[k * 6 + 2+36*i].couleur, "\033[33m\033[0m");
+            strcpy(pioche[k * 6 + 3+36*i].couleur, "\033[32m\033[0m");
+            strcpy(pioche[k * 6 + 4+36*i].couleur, "\033[34m\033[0m");
+            strcpy(pioche[k * 6 + 5+36*i].couleur, "\033[35m\033[0m");
         }
     }
 }

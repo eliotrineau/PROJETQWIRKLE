@@ -8,8 +8,11 @@
 
 int main(){
     //srand(time(NULL));
-    //Tuile a[35];
+    //Tuile a[PIOCHETP];
     //pioche(a);
+    //char a = 'c';
+    //printf("\033[33m%c\033[0m",a);
+
     /*char a = 'c';
     printf("\033[33m%c\033[0m",a);
     //printf("\033[31mTEXTEAECRIRE\033[0m\n");
