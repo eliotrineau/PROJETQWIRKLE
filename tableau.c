@@ -22,7 +22,7 @@ void pioche(Tuile pioche[PIOCHETP]){
             }
             for (int i = 0; i < TDEGRADE - 1; ++i) {
                 int compteur = i;
-                printf("%s %s %d\n", pioche[i].symbole,pioche[i].couleur,compteur);
+                printf("%c %s %d\n", pioche[i].symbole,pioche[i].couleur,compteur);
             }break;
         }
         case 1:
@@ -36,7 +36,7 @@ void pioche(Tuile pioche[PIOCHETP]){
             }
             for (int i = 0; i < TNORMALE - 1; ++i) {
                 int compteur = i;
-                printf("%s %s %d\n",pioche[i].symbole,pioche[i].couleur,compteur);
+                printf("%c %s %d\n",pioche[i].symbole,pioche[i].couleur,compteur);
             }break;
         default:break;
     }
