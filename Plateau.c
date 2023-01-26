@@ -40,6 +40,7 @@ void initialiserPlateau(Tuile Plateau[12][26]) {
             strcpy(Plateau[i][j].couleur, " ") ;
             Plateau[i][j].symbole = ' ';
             Plateau[i][j].vide = 0;
+            strcpy(Plateau[i][j].symbole, ' ');
         }
     }
 }
@@ -55,20 +56,16 @@ int verifierTuile(Tuile Plateau[12][26], int x, int y) {
     // Vérifie si la tuile est adjacente à une tuile de meme couleur ou symbole
     if (x < x-1 && (Plateau[x-1][y].couleur == Plateau[x][y].couleur || Plateau[x-1][y].symbole == Plateau[x][y].symbole)) {
         res = 1;
-        printf("test");
     }
 
     if (x < x+1 && (Plateau[x+1][y].couleur == Plateau[x][y].couleur || Plateau[x+1][y].symbole == Plateau[x][y].symbole)) {
         res = 1;
-        printf("test1");
     }
     if (y < y-1 && (Plateau[x][y-1].couleur == Plateau[x][y].couleur || Plateau[x][y-1].symbole == Plateau[x][y].symbole)) {
         res = 1;
-        printf("test2");
     }
     if (y < y+1 && (Plateau[x][y+1].couleur == Plateau[x][y].couleur || Plateau[x][y+1].symbole == Plateau[x][y].symbole)) {
         res = 1;
-        printf("test3");
     }
     if(res == 0){
         printf("La tuile n'est pas adjacente a une tuile de meme couleur ou forme\n");
@@ -89,19 +86,18 @@ int verifierTuile6max(Tuile Plateau[12][26], int x, int y) {
     // Vérifier le nombre de tuiles voisines
     if (x > 0 && (Plateau[x-1][y].vide )) {
         nbTuilesVoisines++;
-        printf("test11");
     }
     if (x < x-1 && (Plateau[x+1][y].vide)) {
         nbTuilesVoisines++;
-        printf("test12");
     }
     if (y > 0 && (Plateau[x][y-1].vide)) {
         nbTuilesVoisines++;
-        printf("test13");
     }
     if (y < y-1 && (Plateau[x][y+1].vide)) {
         nbTuilesVoisines++;
-        printf("test14");
+    }
+    if (y > 0 && (Plateau[x][y-1].couleur != ' ' || Plateau[x][y-1].symbole != ' ')) {
+        nbTuilesVoisines++;
     }
 // Vérifier si le nombre de tuiles voisines est supérieur à 6
     if (nbTuilesVoisines > 6) {
@@ -112,12 +108,11 @@ int verifierTuile6max(Tuile Plateau[12][26], int x, int y) {
     return res;
 }
 
-void poserTuile(Tuile Plateau[12][26], int x, int y, char couleur[COULEUR], char symbole) {
-    if (verifierTuile(Plateau, x, y) == 1 && (verifierTuile6max(Plateau,x,y)) == 1 ){
-        strcpy(Plateau[x][y].couleur, couleur );
-        Plateau[x][y].symbole = symbole;
-        Plateau[x][y].vide = 1;
-        printf("Tuile posee avec succes!\n");
+void poserTuile(Tuile Plateau[12][26], int x, int y, char couleur, char symbole) {
+    if (verifierTuile(Plateau, x, y) == 1) {
+        strcpy(Plateau[x][y].couleur, couleur);
+        strcpy(Plateau[x][y].symbole,symbole);
+        printf("Tuile posée avec succès!\n");
     } else {
         printf("Impossible de poser la tuile ici!\n");
     }

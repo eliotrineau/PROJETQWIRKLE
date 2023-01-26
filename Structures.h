@@ -1,11 +1,12 @@
 #ifndef PROJETQWIRKLE_STRUCTURES_H
 #define PROJETQWIRKLE_STRUCTURES_H
 
+#include <stdbool.h>
 #include "Macro.h"
 #include "Bibliotheques.h"
 
 typedef struct {
-    char symbole; // symbole de la tuile
+    char symbole[SYMBOLE]; // symbole de la tuile
     char couleur[COULEUR]; // couleur de la tuile
     bool vide; // si la case du plateau est vide 0 vide 1 occupe
 }Tuile;

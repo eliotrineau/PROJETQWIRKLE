@@ -1,8 +1,16 @@
 #include "Plateau.h"
 #include "tableau.h"
+#include "stdbool.h"
+#include "Macro.h"
+
+
 
 
 int main(){
+    //srand(time(NULL));
+    //Tuile a[35];
+    //pioche(a);
+    printf("\033[31mBonjour, monde!\033[0m\n");
     //Tuile pioche[35];
     //pioche(pioche);
     Tuile Plateau[12][26];
