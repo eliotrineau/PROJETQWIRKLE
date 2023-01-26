@@ -369,7 +369,7 @@ void PiocherUneTuile(Tuile* tuileAPiocher, Tuile pioche[], int* taille) {
 
 
 
-void distribuerTuiles(Joueur joueurs[], Tuile pioche[], int* taille, DonneesJeu jeu) {
+void distribuerTuilesDegrade(Joueur joueurs[NBJMAX], Tuile pioche[TDEGRADE], int* taille, DonneesJeu jeu) {
     Tuile tuileAPiocher;
     DegradeInit(pioche);
     int remplissage = 0;
@@ -383,6 +383,7 @@ void distribuerTuiles(Joueur joueurs[], Tuile pioche[], int* taille, DonneesJeu 
                 remplissage++;
                 if (remplissage >= jeu.nbJoueur*6){
                     printf("Tous les pupitres de joueur sont pleins\n");
+                    printf("Il reste %d tuiles dans la pioche\n",*taille);
                 }
             }
             while (tuileAPiocher.tuileDistribue == -1);
@@ -391,4 +392,119 @@ void distribuerTuiles(Joueur joueurs[], Tuile pioche[], int* taille, DonneesJeu 
         }
     }
 }
+
+void distribuerTuilesNormal(Joueur joueurs[NBJMAX], Tuile pioche[TNORMALE], int* taille, DonneesJeu jeu) {
+    Tuile tuileAPiocher;
+    normalInit(pioche);
+    int remplissage = 0;
+    int maxPupitre = PUPITRE;
+    for (int i = 0; i < jeu.nbJoueur; i++) {
+        printf("Joueur : %d\n",i+1);
+        for (int j = 0; j < PUPITRE; j++) {
+            do {
+                PiocherUneTuile(&tuileAPiocher, pioche, taille);
+                printf("%s\n",tuileAPiocher.couleurSymbole);
+                remplissage++;
+                if (remplissage >= jeu.nbJoueur*6){
+                    printf("Tous les pupitres de joueur sont pleins\n");
+                    printf("Il reste %d tuiles dans la pioche\n",*taille);
+                }
+            }
+            while (tuileAPiocher.tuileDistribue == -1);
+            tuileAPiocher.tuileDistribue = -1;
+            strcpy(&joueurs[i].pupitre[j],tuileAPiocher.couleurSymbole);
+        }
+    }
+}
+
+void remplirPupitreDegrade(Joueur* joueur, Tuile pioche[], int* taillePioche, int nbTuilesPosees) {
+    DegradeInit(pioche);
+    int tuilesManquantes = 0;
+    int remplirTuilesAleatoirement = 0;
+    tuilesManquantes = PUPITRE - nbTuilesPosees;
+    for (int i = 0; i < nbTuilesPosees; i++) {
+        if (*taillePioche <= 0) {
+            printf("La pioche est vide");
+        }
+        remplirTuilesAleatoirement = rand() % *taillePioche;
+        strcpy(&joueur->pupitre[i + tuilesManquantes],pioche[remplirTuilesAleatoirement].couleurSymbole);
+        //printf("%s\n", &joueur->pupitre[i+nbTuilesPosees]);
+        //printf("%s\n", pioche[remplirTuilesAleatoirement].couleurSymbole);
+        //joueur->pupitre[i + nbTuilesPosees] = pioche[remplirTuilesAleatoirement];
+        for (int j = remplirTuilesAleatoirement; j < *taillePioche - 1; j++) {
+            pioche[j] = pioche[j + 1];
+        }
+        (*taillePioche)--;
+    }
+
+}
+
+void remplirPupitreNormal(Joueur* joueur, Tuile pioche[], int* taillePioche, int nbTuilesPosees) {
+    normalInit(pioche);
+    int tuilesManquantes = 0;
+    int remplirTuilesAleatoirement = 0;
+    tuilesManquantes = PUPITRE - nbTuilesPosees;
+    for (int i = 0; i < tuilesManquantes; i++) {
+        if (*taillePioche <= 0) {
+            printf("La pioche est vide");
+        }
+        remplirTuilesAleatoirement = rand() % *taillePioche;
+        strcpy(&joueur->pupitre[i + nbTuilesPosees],pioche[remplirTuilesAleatoirement].couleurSymbole);
+        printf("%s\n", pioche[remplirTuilesAleatoirement].couleurSymbole);
+        //joueur->pupitre[i + nbTuilesPosees] = pioche[remplirTuilesAleatoirement];
+        for (int j = remplirTuilesAleatoirement; j < *taillePioche - 1; j++) {
+            pioche[j] = pioche[j + 1];
+        }
+        (*taillePioche)--;
+    }
+}
+
+void copierTuileJoueur(Tuile tuile, Joueur* joueur, int index) {
+    strcpy(&joueur->pupitre[index],tuile.couleurSymbole);
+    joueur->main[index] = tuile.tuileDistribue;
+}
+
+void afficherMainJoueur(Joueur joueur,Tuile tuile[TDEGRADE]) {
+    DonneesJeu jeu;
+    jeu.nbJoueur = 2;
+    int* taille = NULL;
+    int degrade = 36;
+    taille = &degrade;
+    DegradeInit(tuile);
+    distribuerTuilesDegrade(&joueur,tuile,taille,jeu);
+    printf("Main du joueur %s : \n",joueur.nom);
+    for (int i = 0; i < 1; i++) {
+        if (joueur.main[i] == 0){
+            printf("%s\n",&tuile->couleurSymbole[0]);
+        }
+        if (joueur.main[i] == 1){
+            printf("%s\n",&tuile->couleurSymbole[1]);
+        }
+        if (joueur.main[i] == 2){
+            printf("%s\n",&tuile->couleurSymbole[2]);
+        }
+        if (joueur.main[i] == 3){
+            printf("%s\n",&tuile->couleurSymbole[3]);
+        }
+        if (joueur.main[i] == 4){
+            printf("%s\n",&tuile->couleurSymbole[4]);
+        }
+        if (joueur.main[i] == 5){
+            printf("%s\n",&tuile->couleurSymbole[5]);
+        }
+        printf("%s ", &joueur.pupitre[i]);
+    }
+}
+
+
+void afficherMainJoueurActualisation(Joueur joueur, Tuile tuiles[TNORMALE], int nbTuiles) {
+    for (int i = 0; i < PUPITRE; i++) {
+        for (int j = 0; j < nbTuiles; j++) {
+            if(tuiles[j].tuileDistribue == i && tuiles[j].tuileDistribue != -1 ) {
+                printf("Tuile %d: %s\n", i+1, tuiles[j].couleurSymbole);
+            }
+        }
+    }
+}
+
 

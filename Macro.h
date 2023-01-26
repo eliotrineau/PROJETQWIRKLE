@@ -12,6 +12,7 @@
 #define PIOCHETP 36
 #define DEGRADE 1
 #define CHARCOULEUR 27
+#define NBJMAX 4
 
 /// rappel des couleurs ROUGE \033[31m
 /// ROUGE "\033[31mTEXTEAECRIRE\033[0m"
