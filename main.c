@@ -10,6 +10,14 @@ int main(){
     //srand(time(NULL));
     //Tuile a[35];
     //pioche(a);
+    /*char a = 'c';
+    printf("\033[33m%c\033[0m",a);
+    //printf("\033[31mTEXTEAECRIRE\033[0m\n");
+    //printf("\033[38;2;255;165;0mTEXTEAECRIRE\033[0m\n");
+    //printf("\033[33mTEXTEAECRIRE\033[0m\n");
+    //printf("\033[32mTEXTEAECRIRE\033[0m\n");
+    //printf("\033[34mTEXTEAECRIRE\033[0m\n");
+    //printf("\033[35mTEXTEAECRIRE\033[0m\n");
     printf("\033[31mBonjour, monde!\033[0m\n");
     //Tuile pioche[35];
     //pioche(pioche);
@@ -22,10 +30,11 @@ int main(){
 
     return 0;
 }
+
 //int x, y;
 //Tuile Plateau[12][26];
 //initialiserPlateau(Plateau);
-//afficherPlateau(Plateau);
+//afficherPlateautest(Plateau);
 //printf("x");
 //scanf("%d", &x)
 //printf("y");
