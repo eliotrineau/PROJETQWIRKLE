@@ -1,6 +1,7 @@
 #ifndef PROJETQWIRKLE_STRUCTURES_H
 #define PROJETQWIRKLE_STRUCTURES_H
 
+#include <stdbool.h>
 #include "Macro.h"
 #include "Bibliotheques.h"
 

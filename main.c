@@ -1,5 +1,9 @@
 #include "Plateau.h"
 #include "tableau.h"
+#include "stdbool.h"
+#include "Macro.h"
+
+
 
 
 int main(){
