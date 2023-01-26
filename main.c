@@ -7,8 +7,10 @@
 
 
 int main(){
-    //Tuile pioche[35];
-    //pioche(pioche);
+    //srand(time(NULL));
+    //Tuile a[35];
+    //pioche(a);
+    printf("\033[31mBonjour, monde!\033[0m\n");
     return 0;
 }
 
