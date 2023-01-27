@@ -23,8 +23,6 @@ void pioche(Tuile pioche[PIOCHETP]){
                         variableDegrade--;
             }
             Tuile tuileAPiocher;
-            PiocherUneTuile(&tuileAPiocher, pioche, &tailleDegrade);   ///TEMPORAIRETEST
-            printf("Tuile piochée : %s\n", tuileAPiocher.couleurSymbole);   ///TEMPORAIRETEST
             break;
         }
         case 1:
@@ -37,8 +35,6 @@ void pioche(Tuile pioche[PIOCHETP]){
                         variableNormal--;
             }
             Tuile tuileAPiocher;
-            PiocherUneTuile(&tuileAPiocher, pioche, &tailleNormal);   ///TEMPORAIRETEST
-            printf("Tuile piochée : %s\n", tuileAPiocher.couleurSymbole);   ///TEMPORAIRETEST
             break;
         default:break;
     }

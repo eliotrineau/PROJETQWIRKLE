@@ -10,6 +10,7 @@
 #include "Bibliotheques.h"
 #include "Structures.h"
 #include "Macro.h"
+
 void nouvellepartie();
 
 void reglesdujeu();

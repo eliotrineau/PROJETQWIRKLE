@@ -5,4 +5,4 @@ set(CMAKE_C_STANDARD 11)
 
 include_directories(.)
 
-add_executable(PROJETQWIRKLE main.c Structures.h Macro.h tableau.c tableau.h Bibliotheques.h Plateau.c Plateau.h  menu.h)
+add_executable(PROJETQWIRKLE main.c Structures.h Macro.h tableau.c tableau.h Bibliotheques.h Plateau.c Plateau.h  menu.h menu.c)
