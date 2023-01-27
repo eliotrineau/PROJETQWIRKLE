@@ -36,7 +36,7 @@ void jeu(DonneesJeu* jeu) {
     printf("-----------------------------------------------------------------------\n");
     printf("-----------------------------------------------------------------------\n");
     printf("-----------------------------------------------------------------------\n");
-    printf("Vous voulez jouer a combien de joueur ? (2 à 4)\n");
+    printf("Vous voulez jouer a combien de joueur ? (2 a 4)\n");
     scanf("%d", &nbJ);
     switch (nbJ) {
         case 1: {
