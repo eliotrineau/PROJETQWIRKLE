@@ -19,7 +19,7 @@ void regles(){
     printf("ajoutées à cette ligne doivent avoir la même caractéristique que les tuiles qui se trouvent déjà sur la ligne. \nIl peut arriver qu’il y ait des places sur la ligne où aucune tuile ne peut être ajoutée.\n  Une ligne de formes ne peut avoir qu’une tuile de chacune des six couleurs. Par exemple,\n il ne peut y avoir qu’un seul carré orange dans une ligne de carrés.\n Une ligne de couleur ne peut avoir qu’une tuile de chacune des six formes. Parexemple,\n il ne peut y avoir qu’un rond jaune dans une ligne de jaune.\n Echanger des tuiles Lorsque c’est votre tour,\n vous pouvez choisir d’échanger tout ou partie de vos tuiles au lieu de les ajouter à une ligne. \nDans ce cas, vous devez indiquer les tuiles à échanger, puis tirer le même nombre de tuiles de la réserve (l’interface de votre jeu devra permettre cela).\n Si vous ne pouvez pas ajouter de tuiles à une ligne, vous devez échanger tout ou partie de vos tuiles et passer votre tour.\n Calcul des points Quand  vous  créez  une  ligne, \n vous marquez 1  point  pour  chaque  tuile  présente dans  la  ligne.\n  Quand vous ajoutez une tuile à une ligne existante, vous marquez 1 point pour chaque tuile de cette ligne, y compris les tuiles qui se trouvaient au préalable sur cette ligne.\n Une tuile peut rapporter 2 points si elle appartient à deux lignes différentes. \nVoir Exemples de parties pour  des  explications  détaillées.\n  Vous  marquez  6  points  supplémentaires  chaque  fois  que  vous terminez une ligne de six tuiles.\n Les six tuiles doivent être de même couleur, tout en ayant une forme différente OU de même forme, tout en ayant une couleur différente.\n Une ligne de six tuiles est appelée un Qwirkle(6 points supplémentaires).\n  Les  lignes  de  plus  de  six  tuiles  sont  interdites.\n  Le  joueur  qui  termine  la  partie  obtient  6  points supplémentaires. ");
 }
 
-void bouclejeu(int* mode,Joueur j[],Tuile pioche,int* taille,DonneesJeu jeu,DonneesPlateau plateau){
+void bouclejeu(int* mode,Joueur j[],Tuile pioche,int* taille,DonneesJeu jeu,DonneesPlateau plateau,Tuile Plateau[12][26]){
     int fin = 0;
     int* joueurActuel = NULL;
     int choix = afficherMenu();
@@ -30,6 +30,7 @@ void bouclejeu(int* mode,Joueur j[],Tuile pioche,int* taille,DonneesJeu jeu,Donn
                     case 1:{
                         int nbTuilesPosees=0;
                         remplirPupitreDegrade(j,&pioche,taille,nbTuilesPosees);
+                        afficherPlateau(Plateau);
                     }break;
                     case 2:{
                         ///fonction echange tuiles
@@ -143,7 +144,7 @@ void jeu() {
                     }
                     distribuerTuilesDegrade(&joueur[nbJ],pioche1,&tailleD,*jeu);
                     while (fin == 0){
-                        bouclejeu(&mode,joueur, *pioche1, &tailleD,*jeu,plateau);
+                        bouclejeu(&mode,joueur, *pioche1, &tailleD,*jeu,plateau,Plateau);
                     }
                     break;
                     case 1: {
@@ -164,7 +165,7 @@ void jeu() {
                         }
                         distribuerTuilesNormal(&joueur[nbJ],pioche1,&tailleN,*jeu);
                         while (fin == 0){
-                            bouclejeu(&mode,joueur, *pioche2, &tailleN,*jeu,plateau);
+                            bouclejeu(&mode,joueur, *pioche2, &tailleN,*jeu,plateau,Plateau);
                         }
                     }
                     break;
@@ -206,7 +207,7 @@ void jeu() {
                         }
                         distribuerTuilesDegrade(&joueur[nbJ],pioche1,&tailleD,*jeu);
                         while (fin == 0){
-                            bouclejeu(&mode,joueur, *pioche1, &tailleD,*jeu,plateau);
+                            bouclejeu(&mode,joueur, *pioche1, &tailleD,*jeu,plateau,Plateau);
                         }
                         break;
                         case 1: {
@@ -227,7 +228,7 @@ void jeu() {
                             }
                             distribuerTuilesNormal(&joueur[nbJ],pioche1,&tailleN,*jeu);
                             while (fin == 0){
-                                bouclejeu(&mode,joueur, *pioche2, &tailleN,*jeu,plateau);
+                                bouclejeu(&mode,joueur, *pioche2, &tailleN,*jeu,plateau,Plateau);
                             }
                         }
 
@@ -272,7 +273,7 @@ void jeu() {
                         }
                         distribuerTuilesDegrade(&joueur[nbJ],pioche1,&tailleD,*jeu);
                         while (fin == 0){
-                            bouclejeu(&mode,joueur, *pioche1, &tailleD,*jeu,plateau);
+                            bouclejeu(&mode,joueur, *pioche1, &tailleD,*jeu,plateau,Plateau);
                         }
                         break;
                         case 1: {
@@ -293,7 +294,7 @@ void jeu() {
                             }
                             distribuerTuilesNormal(&joueur[nbJ],pioche1,&tailleN,*jeu);
                             while (fin == 0){
-                                bouclejeu(&mode,joueur, *pioche2, &tailleN,*jeu,plateau);
+                                bouclejeu(&mode,joueur, *pioche2, &tailleN,*jeu,plateau,Plateau);
                             }
                         }
                         break;
