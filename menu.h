@@ -11,12 +11,13 @@
 #include "Structures.h"
 #include "Macro.h"
 
-void jeu(DonneesJeu* jeu);
+
 int afficherMenu();
 void bouclejeu(int* mode,Joueur* j,Tuile pioche,int* taille,DonneesJeu jeu,DonneesPlateau plateau,Tuile Plateau[12][26]);
 int calculerScore(DonneesPlateau plateau, DonneesJeu jeu, Joueur* joueur);
 void passerJSuivant(Joueur* joueurs, int nbJoueur, int* joueurActuel);
 int afficherScore(DonneesJeu jeu,Joueur joueur[4]);
+void jeu();
 
 
 

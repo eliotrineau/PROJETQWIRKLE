@@ -2,6 +2,7 @@
 #include "tableau.h"
 #include "stdbool.h"
 #include "Macro.h"
+#include "menu.h"
 
 
 
@@ -23,7 +24,7 @@ int main(){
     printf("\033[31mBonjour, monde!\033[0m\n");
     //Tuile pioche[35];
     */ //pioche(pioche);
-    Tuile Plateau[12][26];
+    //Tuile Plateau[12][26];
     /* Tuile a[PIOCHETP];
     DegradeInit(a);
     //normalInit(a);
@@ -57,7 +58,7 @@ int main(){
     afficherPlateau(Plateau);
     */
 
-
+    jeu();
 
 
     return 0;
