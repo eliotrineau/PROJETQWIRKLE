@@ -210,32 +210,7 @@ void choisirTuilePupitre(Joueur pupitre[PUPITRE], int nbTuiles, Joueur nom[PSEUD
     }
 }
 
-void tourJoueur(Tuile Plateau[12][26], Tuile pupitre[TNORMALE]) {
-    int choix;
-    printf("Choisissez une action :\n1. Afficher le pupitre\n2. Poser une tuile\n3. Echanger sa Tuile dans la pioche\n4. Passez son tour");
-    scanf("%d", &choix);
-    switch (choix) {
-        case 1:
-            afficherMainJoueur((Joueur) pupitre[PUPITRE]);
-            break;
-        case 2:
-            choisirTuilePupitre(pupitre);
-            poserTuile(Plateau,x,y,);
-            break;
-        case 3:
-            echangerTuiles(Joueur pupitre[PUPITRE], Tuile pioche[TNORMALE], Tuile temp[1]);
-            break;
-        case 4:
-            printf("Vous avez passé votre tour.\n");
-            break;
-
-        default:
-            printf("Choix incorrect.\n");
-            break;
-    }
-}
-
-
+/*
 void echangerTuiles(Joueur pupitre[PUPITRE], Tuile pioche[TNORMALE], Tuile temp[1]) {
     int tuileChoisie;
     printf("Quelle tuile voulez-vous echanger (entrez un numero de 0 à 6) ?\n");
@@ -251,5 +226,5 @@ void echangerTuiles(Joueur pupitre[PUPITRE], Tuile pioche[TNORMALE], Tuile temp[
     } else {
         printf("Choix de tuile non valide.\n");
     }
-}
+}*/
 

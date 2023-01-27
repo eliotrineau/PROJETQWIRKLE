@@ -153,7 +153,7 @@ void verifCouleurDegrade(Tuile tuile[TDEGRADE],Tuile t){
         tuile[i].couleurchoix=6;
     }
     for (int i = 0; i < TDEGRADE; ++i) {
-        if (tuile[i].couleurchoix==1){ // if (tuile[i].couleurchoix == 1 || tuile[i].symboleChoix == 1)
+        if (tuile[i].couleurchoix==1){ // if (tuile[i].couleurchoix == 1 || tuile[i].symboleChoix == 1) alors rouge
             printf("rouge\n");
         }
         else if (tuile[i].couleurchoix==2){

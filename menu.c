@@ -28,6 +28,9 @@ void bouclejeu(int* mode,Joueur j[],Tuile pioche,int* taille,DonneesJeu jeu,Donn
         switch (*mode) {
             case 0:{
                 switch (choix) {
+                    case 0:{
+                        bouclejeu(mode,j,pioche,taille,jeu,plateau,Plateau);
+                    }
                     case 1:{
                         do {
                             int nbTuilesPosees=0;
@@ -92,18 +95,15 @@ void bouclejeu(int* mode,Joueur j[],Tuile pioche,int* taille,DonneesJeu jeu,Donn
 void jeu() {
     srand(time(NULL));
     DonneesJeu* jeu;
+    jeu->nbJoueur=0;
+    jeu->mode=0;
     DonneesPlateau plateau;
     Joueur joueur[4];
     int nbJ = 0;
     int mode = 0;
     int fin = 0;
-    int t = 0;
-    int* degrade = NULL;
     int tailleD = 36;
-    degrade = &tailleD;
-    int* normal = NULL;
     int tailleN = 108;
-    normal = &tailleN;
     Tuile Plateau[12][26];
     Tuile pioche1[TDEGRADE];
     Tuile pioche2[TNORMALE];

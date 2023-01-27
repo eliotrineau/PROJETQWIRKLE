@@ -58,6 +58,29 @@ int main(){
     afficherPlateau(Plateau);
     */
 
+    int* mode;
+    Joueur j[4];
+    Tuile pioche;
+    pioche.i=0;
+    pioche.j=0;
+    pioche.symbolechoix = ' ';
+    int* taille = NULL;
+    int tailleExemple = 36;
+    taille = &tailleExemple;
+    DonneesJeu Jeu;
+    Jeu.mode=0;
+    Jeu.nbJoueur=0;
+    DonneesPlateau plateau;
+
+    Tuile Plateau[12][26];
+    printf("mode :");
+    scanf("%d",mode);
+    switch (*mode) {
+        case 0:{
+            bouclejeu(mode,j,pioche,taille,Jeu,plateau,Plateau);
+        }
+    }
+
     jeu();
 
 
