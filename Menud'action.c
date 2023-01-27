@@ -19,7 +19,7 @@ void menuActionsJoueur(Plateau plateau, Tuile* tuilesJoueur, int nbTuilesJoueur)
         printf("2. Prendre une tuile de la pioche\n");
         printf("3. Passer son tour\n");
         printf("4. Quitter la partie\n");
-        printf("Votre choix : ");
+        printf("Votre choix : \n");
         scanf("%d", &choix);
 
         switch(choix) {
@@ -27,13 +27,14 @@ void menuActionsJoueur(Plateau plateau, Tuile* tuilesJoueur, int nbTuilesJoueur)
                 poserTuile(plateau, tuilesJoueur, nbTuilesJoueur);
                 break;
             case 2:
-                prendreTuilePioche(tuilesJoueur, &nbTuilesJoueur);
+                prendreTuilePioche(tuilesJoueur, nbTuilesJoueur);
                 break;
             case 3:
                 printf("Vous avez passé votre tour\n");
                 break;
             case 4:
                 printf("Vous avez quitté la partie\n");
+                exit(1);
                 break;
             default:
                 printf("Choix non valide\n");

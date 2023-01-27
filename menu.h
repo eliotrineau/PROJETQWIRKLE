@@ -11,6 +11,7 @@
 #include "Structures.h"
 #include "Macro.h"
 
+void jeu(DonneesJeu* jeu);
 void nouvellepartie();
 
 void reglesdujeu();

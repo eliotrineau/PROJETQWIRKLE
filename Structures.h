@@ -23,6 +23,7 @@ typedef struct {
     Tuile* pioche;
 }DonneesPioche;
 typedef struct {
+    int mode;
     int nbJoueur;
 }DonneesJeu;
 

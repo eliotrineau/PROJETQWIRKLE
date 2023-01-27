@@ -141,7 +141,7 @@ int verifiePoseTuile(Tuile Plateau[26][12], int x, int y, Tuile tuile) {
     return res;
 }
 
-
+/*
 Tuile prendreTuilePioche(Tuile pioche[], int taillePioche) {
     if (taillePioche == 0) {
         printf("La pioche est vide, impossible de prendre une tuile.\n");
@@ -155,8 +155,9 @@ Tuile prendreTuilePioche(Tuile pioche[], int taillePioche) {
     afficherPupitre(tuile);
     return tuile;
 }
+ $/
 
-
+/*
 void attribuerPupitre(Joueur* joueur, Tuile* tuilesPupitre, int nbTuiles) {
     Joueur->t = tuilesPupitre;
     joueur->nbTuilesPupitre = nbTuiles;
@@ -169,3 +170,4 @@ void afficherPupitre(Tuile pupitre[]) {
         printf("%d. Couleur : %c, Forme : %c\n", i+1, pupitre[i].couleur, pupitre[i].forme);
     }
 }
+ */
