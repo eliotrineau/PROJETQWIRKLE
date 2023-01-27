@@ -1,18 +1,40 @@
 #include "Plateau.h"
+#include "Structures.h"
+#include "tableau.h"
 
-void afficherPlateau(Tuile Plateau[12][26]) {
-    printf("  ");
+
+
+void atest(Tuile Plateau[12][26]) {
     for (int i = 0; i <= 9; i++) {
         printf("  %d  ", i);
     }
     for (int i = 10; i <= 25; i++) {
         printf("  %d ", i);
+
+        for (int j = 0; j < 26; j++) {
+            printf("[%s]", Plateau[i][j].couleurSymbole);
+        }
+    }
+}
+
+
+
+void afficherPlateau(Tuile Plateau[12][26]) {
+    //normalInit(*Plateau);
+    // DegradeInit(*Plateau);
+
+    printf("  ");
+    for (int i = 0; i <= 9; i++) {
+        printf("  %d", i);
+    }
+    for (int i = 10; i <= 25; i++) {
+        printf(" %d", i);
     }
     printf("\n");
     for (int i = 0; i <= 11; i++) {
-        printf(" %d ", i);
+        printf(" %d  ", i);
         for (int j = 0; j < 26; j++) {
-            printf("[%s,%c]", Plateau[i][j].couleur, Plateau[i][j].symbole);
+            printf("[%s]", Plateau[i][j].couleurSymbole);
         }
         printf("\n");
     }
@@ -21,8 +43,7 @@ void afficherPlateau(Tuile Plateau[12][26]) {
 void initialiserPlateau(Tuile Plateau[12][26]) {
     for (int i = 0; i < 12; i++) {
         for (int j = 0; j < 26; j++) {
-            strcpy(Plateau[i][j].couleur, " ") ;
-            strcpy(Plateau[i][j].symbole, ' ');
+            strcpy(Plateau[i][j].couleurSymbole, " ") ;
         }
     }
 }
@@ -103,69 +124,39 @@ int verifierTuile6max(Tuile Plateau[12][26], int x, int y) {
  */
 
 
-void poserTuile(Tuile Plateau[12][26], int x, int y, Tuile TuileUV) {
-    if (verifiePoseTuile(Plateau,x,y,TuileUV)== 1) {
-        strcpy(Plateau[x][y].couleur, TuileUV.couleur);
-        strcpy(Plateau[x][y].symbole,TuileUV.symbole);
-        TuileUV.vide = 1;
-        printf("Tuile posée avec succès!\n");
+void poserTuile(Tuile Plateau[12][26], int x, int y, Tuile a[TNORMALE]){
+    if (verifiePoseTuile(Plateau,x,y,a)== 1) {
+        strcpy(Plateau[0][0].couleurSymbole, "\033[33m4\033[0m");
+        a->vide = 1;
+        printf("Tuile posee avec succes!\n");
     } else {
         printf("Impossible de poser la tuile ici!\n");
     }
 }
 
-int verifiePoseTuile(Tuile Plateau[26][12], int x, int y, Tuile tuile) {
+int verifiePoseTuile(Tuile Plateau[26][12], int x, int y, Tuile a[TNORMALE]) {
     int nbTuilesVoisines = 0;
     int res = 1;
     if (x > 0 && Plateau[x-1][y].vide) {
-        if(Plateau[x-1][y].couleur == tuile.couleur || Plateau[x-1][y].symbole == tuile.symbole)
+        if(Plateau[x-1][y].couleurSymbole == a->couleurSymbole)
             nbTuilesVoisines++;
     }
     if (x < 25 && Plateau[x+1][y].vide) {
-        if(Plateau[x+1][y].couleur == tuile.couleur || Plateau[x+1][y].symbole == tuile.symbole)
+        if(Plateau[x+1][y].couleurSymbole == a->couleurSymbole)
             nbTuilesVoisines++;
     }
     if (y > 0 && Plateau[x][y-1].vide) {
-        if(Plateau[x][y-1].couleur == tuile.couleur || Plateau[x][y-1].symbole == tuile.symbole)
+        if(Plateau[x][y-1].couleurSymbole== a->couleurSymbole)
             nbTuilesVoisines++;
     }
     if (y < 11 && Plateau[x][y+1].vide) {
-        if(Plateau[x][y+1].couleur == tuile.couleur || Plateau[x][y+1].symbole == tuile.symbole)
+        if(Plateau[x][y+1].couleurSymbole == a->couleurSymbole)
             nbTuilesVoisines++;
     }
     if (nbTuilesVoisines >= 7) {
         printf("Il y a plus de 6 tuiles voisines!\n");
-        res = 0;
+        res = 1;
         return  res;
     }
     return res;
-}
-
-
-Tuile prendreTuilePioche(Tuile pioche[], int taillePioche) {
-    if (taillePioche == 0) {
-        printf("La pioche est vide, impossible de prendre une tuile.\n");
-        return;
-    }
-    // On récupère la dernière tuile de la pioche
-    Tuile tuile = pioche[taillePioche - 1];
-    // On décrémente la taille de la pioche
-    taillePioche--;
-    printf("La tuile suivante a été prise de la pioche :\n");
-    afficherPupitre(tuile);
-    return tuile;
-}
-
-
-void attribuerPupitre(Joueur* joueur, Tuile* tuilesPupitre, int nbTuiles) {
-    Joueur->t = tuilesPupitre;
-    joueur->nbTuilesPupitre = nbTuiles;
-}
-
-void afficherPupitre(Tuile pupitre[]) {
-    int i;
-    printf("Tuiles dans le pupitre :\n");
-    for (i = 0; i < 6; i++) {
-        printf("%d. Couleur : %c, Forme : %c\n", i+1, pupitre[i].couleur, pupitre[i].forme);
-    }
 }
