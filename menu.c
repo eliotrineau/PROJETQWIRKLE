@@ -312,7 +312,7 @@ void menuActionsJoueur(Plateau plateau, Tuile* tuilesJoueur, int nbTuilesJoueur)
 
 void reglesdujeu(){
     printf("Voici les regles du jeu:\n");
-    printf("Dans Qwirkle, vous devez aligner des tuiles ayant des simboles\n"
+    printf("Dans Qwirkle, vous devez aligner des tuiles ayant des symboles\n"
            "De formes ou de couleurs identiques de facon a realiser\n"
            " des combinaisons qui vous rapporteront des points\n"
 
@@ -325,9 +325,9 @@ void reglesdujeu(){
            "- Echanger une partie ou l’ensemble de ses tuiles contre celles de la reserve.\n"
 
 
-           "La partie se poursuit jusqu'à ce que la réserve soit vide \n"
-           "Et que un joueur ait épuisé toutes ses tuiles\n"
-           "Le joueur ayant accumulé un maximum de points remporte la partie\n");
+           "La partie se poursuit jusqu'a ce que la réserve soit vide \n"
+           "Et que un joueur ait épuise toutes ses tuiles\n"
+           "Le joueur ayant accumule un maximum de points remporte la partie\n");
 
 
 }
