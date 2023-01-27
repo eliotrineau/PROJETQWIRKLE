@@ -1,9 +1,4 @@
-//
-// Created by louis on 25/01/2023.
-//
-#include "stdio.h"
 #include "Plateau.h"
-#include "string.h"
 
 void afficherPlateau(Tuile Plateau[12][26]) {
     printf("  ");
@@ -27,9 +22,7 @@ void initialiserPlateau(Tuile Plateau[12][26]) {
     for (int i = 0; i < 12; i++) {
         for (int j = 0; j < 26; j++) {
             strcpy(Plateau[i][j].couleur, " ") ;
-            Plateau[i][j].symbole = ' ';
-            Plateau[i][j].vide = 0;
-           // strcpy(Plateau[i][j].symbole, ' ');
+            strcpy(Plateau[i][j].symbole, ' ');
         }
     }
 }
@@ -61,9 +54,6 @@ void initialiserPlateau(Tuile Plateau[12][26]) {
     }
     return res;
 }
-
-
--------------------------------------------------------------------------------------------------
 
 
 int verifierTuile6max(Tuile Plateau[12][26], int x, int y) {

@@ -8,6 +8,9 @@
 #endif //PROJETQWIRKLE_MENU_H
 
 #include "Bibliotheques.h"
+#include "Structures.h"
+#include "Macro.h"
+
 void nouvellepartie();
 
 void reglesdujeu();
@@ -15,3 +18,9 @@ void reglesdujeu();
 void credits();
 
 void quitter_le_jeu();
+
+void sauvegarder_partie();
+
+void charger_partie();
+
+void afficher_score(Joueur);
