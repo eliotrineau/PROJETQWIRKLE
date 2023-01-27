@@ -10,16 +10,17 @@
 #include "Bibliotheques.h"
 
 
-void ajouterTuile (Tuile Plateau[12][26], int x, int y, char couleur[COULEUR], char symbole[SYMBOLE]);
-void afficherPlateautest(Tuile Plateau[12][26]);
+// void ajouterTuile (Tuile Plateau[12][26], int x, int y, Tuile);
+void afficherPlateau(Tuile Plateau[12][26]);
 void initialiserPlateau(Tuile Plateau[12][26]);
-int verifierTuile(Tuile Plateau[12][26], int x, int y);
-int verifierTuile6max(Tuile Plateau[12][26], int x, int y);
-void poserTuile(Tuile Plateau[12][26], int x, int y, char couleur, char symbole);
+// int verifierTuile(Tuile Plateau[12][26], int x, int y);
+void poserTuile(Tuile Plateau[12][26], int x, int y, Tuile);
+int verifiePoseTuile(Tuile Plateau[26][12], int x, int y, Tuile tuile);
+void afficherPupitre(Tuile pupitre[]);
+void attribuerPupitre(Joueur* joueur, Tuile* tuilesPupitre, int nbTuiles);
+Tuile prendreTuilePioche(Tuile pioche[], int taillePioche);
 
 
 
-void plateauinittest(char plateau[12][26][3]);
 
-void afficherplateauinittest();
 #endif //PROJETQWIRKLE_PLATEAU_H

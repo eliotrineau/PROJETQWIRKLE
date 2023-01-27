@@ -2,20 +2,37 @@
 #include "tableau.h"
 #include "stdbool.h"
 #include "Macro.h"
-#include "Bibliotheques.h"
+
 
 
 
 int main(){
     //srand(time(NULL));
-    //Tuile a[TNORMALE];
-    //Tuile b[TDEGRADE];
-    afficherplateauinittest();
+    //Tuile a[PIOCHETP];
+    //pioche(a);
+    //char a = 'c';
+    //printf("\033[33m%c\033[0m",a);
+
+    /*char a = 'c';
+    printf("\033[33m%c\033[0m",a);
+    //printf("\033[31mTEXTEAECRIRE\033[0m\n");
+    //printf("\033[38;2;255;165;0mTEXTEAECRIRE\033[0m\n");
+    //printf("\033[33mTEXTEAECRIRE\033[0m\n");
+    //printf("\033[32mTEXTEAECRIRE\033[0m\n");
+    //printf("\033[34mTEXTEAECRIRE\033[0m\n");
+    //printf("\033[35mTEXTEAECRIRE\033[0m\n");
+    printf("\033[31mBonjour, monde!\033[0m\n");
+    //Tuile pioche[35];
+    //pioche(pioche);
+    Tuile Plateau[12][26];
+    initialiserPlateau(Plateau);
+    afficherPlateau(Plateau);
+    poserTuile(Plateau,0,0,"jaune",'x');
+    afficherPlateau(Plateau);
+    poserTuile(Plateau,0,8,"Jaune",'M');
+
     return 0;
 }
-
-
-
 
 //int x, y;
 //Tuile Plateau[12][26];
