@@ -21,6 +21,7 @@ void verifSymboleDegrade(Tuile tuile[TDEGRADE],Tuile t);
 void tuile(Tuile tuile);
 void choixTuile(Joueur* joueur,DonneesPlateau* plateau,int i,int j);
 void test(Tuile tuile[DEGRADE],Tuile t);
+void echangerTuiles(Joueur pupitre[PUPITRE], Tuile pioche[TNORMALE]);
 
 #endif
 

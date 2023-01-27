@@ -35,6 +35,7 @@ typedef struct {
     int score; // score du joueur
     char nom[PSEUDO]; // pseudo du joueur
     Tuile main[6];
+    Tuile temp[1];
 }Joueur;
 
 
