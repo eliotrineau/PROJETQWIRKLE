@@ -28,13 +28,32 @@ int main(){
     //normalInit(a);
     Tuile Plateau[12][26];
     a[1].couleurSymbole;
-    a[2].couleurSymbole;
     initialiserPlateau(Plateau);
+    strcpy(Plateau[1][0].couleurSymbole, "\033[31m3\033[0m");
+    // afficherPlateau(Plateau);
+    // poserTuile(Plateau,1,0,&a[0]);
     afficherPlateau(Plateau);
-    poserTuile(Plateau,1,0,&a[0]);
-    poserTuile(Plateau,2,0,&a[1]);
+    a[5].couleurSymbole;
+    poserTuile(Plateau,0,0,&a[5]);
     afficherPlateau(Plateau);
-
+    a[7].couleurSymbole;
+    poserTuile(Plateau,2,0,&a[7]);
+    afficherPlateau(Plateau);
+    a[8].couleurSymbole;
+    poserTuile(Plateau,2,0,&a[8]);
+    afficherPlateau(Plateau);
+    a[9].couleurSymbole;
+    poserTuile(Plateau,2,0,&a[9]);
+    afficherPlateau(Plateau);
+    a[10].couleurSymbole;
+    poserTuile(Plateau,2,0,&a[10]);
+    afficherPlateau(Plateau);
+    a[11].couleurSymbole;
+    poserTuile(Plateau,2,0,&a[11]);
+    afficherPlateau(Plateau);
+    a[12].couleurSymbole;
+    poserTuile(Plateau,2,0,&a[12]);
+    afficherPlateau(Plateau);
     return 0;
 }
 
