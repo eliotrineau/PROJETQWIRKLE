@@ -5,17 +5,6 @@
 #include "Plateau.h"
 #include "string.h"
 
-
-void ajouterTuile (Tuile Plateau[12][26], int x, int y, char couleur[COULEUR], char symbole) {
-    if (Plateau[x][y].couleur != ' ' || Plateau[x][y].symbole != ' ') {
-        printf("Cette case est déjà occupée!\n");
-    } else {
-        strcpy(Plateau[x][y].couleur, couleur);
-        Plateau[x][y].symbole = symbole;
-    }
-}
-
-
 void afficherPlateau(Tuile Plateau[12][26]) {
     printf("  ");
     for (int i = 0; i <= 9; i++) {
@@ -40,14 +29,14 @@ void initialiserPlateau(Tuile Plateau[12][26]) {
             strcpy(Plateau[i][j].couleur, " ") ;
             Plateau[i][j].symbole = ' ';
             Plateau[i][j].vide = 0;
-            strcpy(Plateau[i][j].symbole, ' ');
+           // strcpy(Plateau[i][j].symbole, ' ');
         }
     }
 }
 
 
-int verifierTuile(Tuile Plateau[12][26], int x, int y) {
-    int res = 0;
+/* int verifierTuile(Tuile Plateau[12][26], int x, int y) {
+    int res = 1;
     // Vérifie si la case est deja occupe
     if (Plateau[x][y].vide == 1) {
         printf("Cette case est deja occupee!\n");
@@ -74,6 +63,9 @@ int verifierTuile(Tuile Plateau[12][26], int x, int y) {
 }
 
 
+-------------------------------------------------------------------------------------------------
+
+
 int verifierTuile6max(Tuile Plateau[12][26], int x, int y) {
     int res = 1;
     int nbTuilesVoisines = 0;
@@ -96,7 +88,7 @@ int verifierTuile6max(Tuile Plateau[12][26], int x, int y) {
     if (y < y-1 && (Plateau[x][y+1].vide)) {
         nbTuilesVoisines++;
     }
-    if (y > 0 && (Plateau[x][y-1].couleur != ' ' || Plateau[x][y-1].symbole != ' ')) {
+    if (y > 0 && (Plateau[x][y-1].vide)) {
         nbTuilesVoisines++;
     }
 // Vérifier si le nombre de tuiles voisines est supérieur à 6
@@ -107,23 +99,34 @@ int verifierTuile6max(Tuile Plateau[12][26], int x, int y) {
 
     return res;
 }
+---------------------------------------------------------------------------------
 
-void poserTuile(Tuile Plateau[12][26], int x, int y, char couleur, char symbole) {
-    if (verifierTuile(Plateau, x, y) == 1) {
-        strcpy(Plateau[x][y].couleur, couleur);
-        strcpy(Plateau[x][y].symbole,symbole);
+
+ void ajouterTuile (Tuile Plateau[12][26], int x, int y, Tuile TuileUT) {
+    if (Plateau[x][y].vide == 1) {
+        printf("Cette case est déjà occupée!\n");
+    } else {
+        strcpy(Plateau[x][y].couleur, TuileUT.couleur);
+        Plateau[x][y].symbole = TuileUT.symbole;
+    }
+}
+ */
+
+
+void poserTuile(Tuile Plateau[12][26], int x, int y, Tuile TuileUV) {
+    if (verifiePoseTuile(Plateau,x,y,TuileUV)== 1) {
+        strcpy(Plateau[x][y].couleur, TuileUV.couleur);
+        strcpy(Plateau[x][y].symbole,TuileUV.symbole);
+        TuileUV.vide = 1;
         printf("Tuile posée avec succès!\n");
     } else {
         printf("Impossible de poser la tuile ici!\n");
     }
 }
 
-// if (Plateau[x][y].couleur != ' ' || Plateau[x][y].symbole != ' ') {
-//        printf("Cette case est déjà occupée!\n");
-//        res = 0;
-
-bool verifiePoseTuile(Tuile Plateau[26][12], int x, int y, Tuile tuile) {
+int verifiePoseTuile(Tuile Plateau[26][12], int x, int y, Tuile tuile) {
     int nbTuilesVoisines = 0;
+    int res = 1;
     if (x > 0 && Plateau[x-1][y].vide) {
         if(Plateau[x-1][y].couleur == tuile.couleur || Plateau[x-1][y].symbole == tuile.symbole)
             nbTuilesVoisines++;
@@ -140,8 +143,39 @@ bool verifiePoseTuile(Tuile Plateau[26][12], int x, int y, Tuile tuile) {
         if(Plateau[x][y+1].couleur == tuile.couleur || Plateau[x][y+1].symbole == tuile.symbole)
             nbTuilesVoisines++;
     }
-    if (nbTuilesVoisines <= 6) {
-        return true;
+    if (nbTuilesVoisines >= 7) {
+        printf("Il y a plus de 6 tuiles voisines!\n");
+        res = 0;
+        return  res;
     }
-    return false;
+    return res;
+}
+
+
+Tuile prendreTuilePioche(Tuile pioche[], int taillePioche) {
+    if (taillePioche == 0) {
+        printf("La pioche est vide, impossible de prendre une tuile.\n");
+        return;
+    }
+    // On récupère la dernière tuile de la pioche
+    Tuile tuile = pioche[taillePioche - 1];
+    // On décrémente la taille de la pioche
+    taillePioche--;
+    printf("La tuile suivante a été prise de la pioche :\n");
+    afficherPupitre(tuile);
+    return tuile;
+}
+
+
+void attribuerPupitre(Joueur* joueur, Tuile* tuilesPupitre, int nbTuiles) {
+    Joueur->t = tuilesPupitre;
+    joueur->nbTuilesPupitre = nbTuiles;
+}
+
+void afficherPupitre(Tuile pupitre[]) {
+    int i;
+    printf("Tuiles dans le pupitre :\n");
+    for (i = 0; i < 6; i++) {
+        printf("%d. Couleur : %c, Forme : %c\n", i+1, pupitre[i].couleur, pupitre[i].forme);
+    }
 }
