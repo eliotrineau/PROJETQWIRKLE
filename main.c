@@ -10,11 +10,12 @@ int main(){
     //srand(time(NULL));
     //Tuile a[TNORMALE];
     //Tuile b[TDEGRADE];
-    Tuile Plateau[12][26];
-    initialiserPlateau(Plateau);
-    afficherPlateautest(Plateau);
+    afficherplateauinittest();
     return 0;
 }
+
+
+
 
 //int x, y;
 //Tuile Plateau[12][26];

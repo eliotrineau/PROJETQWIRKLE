@@ -17,4 +17,9 @@ int verifierTuile(Tuile Plateau[12][26], int x, int y);
 int verifierTuile6max(Tuile Plateau[12][26], int x, int y);
 void poserTuile(Tuile Plateau[12][26], int x, int y, char couleur, char symbole);
 
+
+
+void plateauinittest(char plateau[12][26][3]);
+
+void afficherplateauinittest();
 #endif //PROJETQWIRKLE_PLATEAU_H

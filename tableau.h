@@ -17,7 +17,6 @@ void remplirPupitreDegrade(Joueur* joueur, Tuile pioche[], int* taillePioche, in
 void remplirPupitreNormal(Joueur* joueur, Tuile pioche[], int* taillePioche, int nbTuilesPosees);
 void afficherMainJoueur(Joueur j);
 void afficherMainJoueurActualisation(DonneesPioche *pioche, int nbTuiles);
-void choixTuiles(Joueur joueur);
 void verifSymboleDegrade(Tuile tuile[TDEGRADE],Tuile t);
 void tuile(Tuile tuile);
 void choixTuile(Joueur* joueur,DonneesPlateau* plateau,int i,int j);

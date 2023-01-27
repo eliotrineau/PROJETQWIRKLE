@@ -1,9 +1,4 @@
-//
-// Created by louis on 25/01/2023.
-//
-#include "stdio.h"
 #include "Plateau.h"
-#include "string.h"
 
 
 void ajouterTuile (Tuile Plateau[12][26], int x, int y, char couleur[COULEUR], char symbole[SYMBOLE]) {
@@ -114,3 +109,23 @@ void poserTuile(Tuile Plateau[12][26], int x, int y, char couleur, char symbole)
         printf("Impossible de poser la tuile ici!\n");
     }
 }
+
+
+void plateauinittest(char plateau[12][26][3]){
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 26; j++) {
+            snprintf(plateau[i][j], 3, "[ ]");
+        }
+    }
+}
+
+void afficherplateauinittest(){
+    char plateau[12][26][3];
+    plateauinittest(plateau);
+    for (int i = 0; i < 12; ++i) {
+        for (int j = 0; j < 26; ++j) {
+            printf("%s\n","[ ]");
+        }
+    }
+}
+
