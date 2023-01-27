@@ -13,7 +13,7 @@
 
 void jeu(DonneesJeu* jeu);
 int afficherMenu();
-void bouclejeu(int t,int* mode,Joueur* j,Tuile pioche,int* taille,DonneesJeu jeu,DonneesPlateau plateau);
+void bouclejeu(int* mode,Joueur* j,Tuile pioche,int* taille,DonneesJeu jeu,DonneesPlateau plateau);
 int calculerScore(DonneesPlateau plateau, DonneesJeu jeu, Joueur* joueur);
 void passerJSuivant(Joueur* joueurs, int nbJoueur, int* joueurActuel);
 void nouvellepartie();
