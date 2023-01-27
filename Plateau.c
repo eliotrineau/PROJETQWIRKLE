@@ -1,23 +1,4 @@
 #include "Plateau.h"
-#include "Structures.h"
-#include "tableau.h"
-
-
-
-void atest(Tuile Plateau[12][26]) {
-    for (int i = 0; i <= 9; i++) {
-        printf("  %d  ", i);
-    }
-    for (int i = 10; i <= 25; i++) {
-        printf("  %d ", i);
-
-        for (int j = 0; j < 26; j++) {
-            printf("[%s]", Plateau[i][j].couleurSymbole);
-        }
-    }
-}
-
-
 
 void afficherPlateau(Tuile Plateau[12][26]) {
     //normalInit(*Plateau);
@@ -32,7 +13,7 @@ void afficherPlateau(Tuile Plateau[12][26]) {
     }
     printf("\n");
     for (int i = 0; i <= 11; i++) {
-        printf(" %d  ", i);
+        printf(" %d ", i);
         for (int j = 0; j < 26; j++) {
             printf("[%s]", Plateau[i][j].couleurSymbole);
         }
@@ -159,4 +140,33 @@ int verifiePoseTuile(Tuile Plateau[26][12], int x, int y, Tuile a[TNORMALE]) {
         return  res;
     }
     return res;
+}
+
+
+Tuile prendreTuilePioche(Tuile pioche[], int taillePioche) {
+    if (taillePioche == 0) {
+        printf("La pioche est vide, impossible de prendre une tuile.\n");
+        return;
+    }
+    // On récupère la dernière tuile de la pioche
+    Tuile tuile = pioche[taillePioche - 1];
+    // On décrémente la taille de la pioche
+    taillePioche--;
+    printf("La tuile suivante a été prise de la pioche :\n");
+    afficherPupitre(tuile);
+    return tuile;
+}
+
+
+void attribuerPupitre(Joueur* joueur, Tuile* tuilesPupitre, int nbTuiles) {
+    Joueur->t = tuilesPupitre;
+    joueur->nbTuilesPupitre = nbTuiles;
+}
+
+void afficherPupitre(Tuile pupitre[]) {
+    int i;
+    printf("Tuiles dans le pupitre :\n");
+    for (i = 0; i < 6; i++) {
+        printf("%d. Couleur : %c, Forme : %c\n", i+1, pupitre[i].couleur, pupitre[i].forme);
+    }
 }

@@ -11,7 +11,6 @@ void pioche(Tuile pioche[PIOCHETP]){
     int tailleNormal = TNORMALE;
     scanf("%d",&choix);
     printf("choix : %d\n",choix);
-
     switch (choix) {
         case 0: {
             DegradeInit(pioche);
@@ -22,7 +21,6 @@ void pioche(Tuile pioche[PIOCHETP]){
                         pioche[resultat] = temporaire;
                         variableDegrade--;
             }
-            Tuile tuileAPiocher;
             break;
         }
         case 1:
@@ -34,7 +32,6 @@ void pioche(Tuile pioche[PIOCHETP]){
                         pioche[resultat] = temporaire;
                         variableNormal--;
             }
-            Tuile tuileAPiocher;
             break;
         default:break;
     }
