@@ -503,6 +503,7 @@ void distribuerTuilesDegrade(Joueur joueurs[NBJMAX], Tuile pioche[TDEGRADE], int
             tuileAPiocher.tuileDistribue = -1;
             joueurs[i].main[j] = tuileAPiocher;
             strcpy(joueurs->main[i].couleurSymbole,tuileAPiocher.couleurSymbole);
+            printf("%s\n",joueurs->main[i].couleurSymbole);
         }
     }
 }
@@ -527,6 +528,8 @@ void distribuerTuilesNormal(Joueur joueurs[NBJMAX], Tuile pioche[TNORMALE], int*
             while (tuileAPiocher.tuileDistribue == -1);
             tuileAPiocher.tuileDistribue = -1;
             strcpy(joueurs->main[i].couleurSymbole,tuileAPiocher.couleurSymbole);
+            printf("%s\n",joueurs->main[i].couleurSymbole);
+
         }
     }
 }
