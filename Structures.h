@@ -10,7 +10,7 @@ typedef struct {
     int couleurchoix;
     int symbolechoix;
     char couleur[CHARCOULEUR];
-    char symbole[SYMBOLE];
+    char symbole[SYMBOLE]; // symbole de la tuile
     char couleurSymbole[CHARCOULEUR]; // couleur de la tuile
     bool vide; // si la case du plateau est vide
     int tuileDistribue;
