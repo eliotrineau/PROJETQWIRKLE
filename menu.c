@@ -309,3 +309,25 @@ void menuActionsJoueur(Plateau plateau, Tuile* tuilesJoueur, int nbTuilesJoueur)
     }
 //-70,6 +90,37  void quitter_le_jeu(){
 */
+
+void reglesdujeu(){
+    printf("Voici les regles du jeu:\n");
+    printf("Dans Qwirkle, vous devez aligner des tuiles ayant des simboles\n"
+           "De formes ou de couleurs identiques de facon a realiser\n"
+           " des combinaisons qui vous rapporteront des points\n"
+
+           " Au debut de la partie,chaque joueur pioche 6 tuiles de facon aleatoire\n"
+           "dans le sac de tissu,les autres tuiles formeront la reserve\n"
+
+           " A son tour , chaque joueur a le choix entre 3 actions :\n"
+           "- Completer une ligne en y ajoutant une tuile puis piocher une tuile afin de toujours en avoir 6\n"
+           "- Completer une ligne en y ajoutant 2 tuiles puis piocher 2 tuiles dans la reserve\n"
+           "- Echanger une partie ou l’ensemble de ses tuiles contre celles de la reserve.\n"
+
+
+           "La partie se poursuit jusqu'à ce que la réserve soit vide \n"
+           "Et que un joueur ait épuisé toutes ses tuiles\n"
+           "Le joueur ayant accumulé un maximum de points remporte la partie\n");
+
+
+}
