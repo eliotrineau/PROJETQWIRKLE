@@ -1,6 +1,7 @@
 #include "Plateau.h"
 #include "Structures.h"
 #include "tableau.h"
+#include "stdlib.h"
 
 void afficherPlateau(Tuile Plateau[12][26]) {
     //normalInit(*Plateau);
@@ -186,7 +187,7 @@ bool verifierTuilesAdjacentes(Tuile Plateau[12][26], int x, int y) {
 }
 
 
-void choisirEmplacementTuile(Tuile Plateau[12][26], Tuile tuileChoisie) {
+void emplacementXY(Tuile Plateau[12][26], Tuile tuileChoisie) {
     int x, y;
     printf("Ou souhaitez-vous poser la tuile? Entrez les coordonnees x et y :\n");
     scanf("%d %d", &x, &y);
@@ -206,6 +207,49 @@ void choisirTuilePupitre(Joueur pupitre[PUPITRE], int nbTuiles, Joueur nom[PSEUD
     while (choix < 1 || choix > nbTuiles) {
         printf("Choix incorrect, merci de choisir une tuile valide (1-6) : " );
         scanf("%d", &choix);
+    }
+}
+
+void tourJoueur(Tuile Plateau[12][26], Tuile pupitre[TNORMALE]) {
+    int choix;
+    printf("Choisissez une action :\n1. Afficher le pupitre\n2. Poser une tuile\n3. Echanger sa Tuile dans la pioche\n4. Passez son tour");
+    scanf("%d", &choix);
+    switch (choix) {
+        case 1:
+            afficherMainJoueur((Joueur) pupitre[PUPITRE]);
+            break;
+        case 2:
+            choisirTuilePupitre(pupitre);
+            poserTuile(Plateau,x,y,);
+            break;
+        case 3:
+            echangerTuiles(Joueur pupitre[PUPITRE], Tuile pioche[TNORMALE], Tuile temp[1]);
+            break;
+        case 4:
+            printf("Vous avez passé votre tour.\n");
+            break;
+
+        default:
+            printf("Choix incorrect.\n");
+            break;
+    }
+}
+
+
+void echangerTuiles(Joueur pupitre[PUPITRE], Tuile pioche[TNORMALE], Tuile temp[1]) {
+    int tuileChoisie;
+    printf("Quelle tuile voulez-vous echanger (entrez un numero de 0 à 6) ?\n");
+    scanf("%d", &tuileChoisie);
+    // Vérifie que le choix est valide
+    if (tuileChoisie >= 0 && tuileChoisie <= 6) {
+        // Choisit une tuile au hasard dans la pioche
+        int tuileEchange = rand() % TNORMALE;
+        // Echange les tuiles
+        Tuile temp[1] = pupitre[tuileChoisie];
+        pupitre[tuileChoisie] = pioche[tuileEchange];
+        pioche[tuileEchange] = temp;
+    } else {
+        printf("Choix de tuile non valide.\n");
     }
 }
 

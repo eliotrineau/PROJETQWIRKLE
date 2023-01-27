@@ -23,7 +23,8 @@ int main(){
     printf("\033[31mBonjour, monde!\033[0m\n");
     //Tuile pioche[35];
     */ //pioche(pioche);
-    Tuile a[PIOCHETP];
+    Tuile Plateau[12][26];
+    /* Tuile a[PIOCHETP];
     DegradeInit(a);
     //normalInit(a);
     Tuile Plateau[12][26];
@@ -54,6 +55,11 @@ int main(){
     a[12].couleurSymbole;
     poserTuile(Plateau,2,0,&a[12]);
     afficherPlateau(Plateau);
+    */
+
+
+
+
     return 0;
 }
 

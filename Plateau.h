@@ -21,7 +21,9 @@ int verifiePoseTuile(Tuile Plateau[26][12], int x, int y, Tuile a[TNORMALE]);
 void atest(Tuile Plateau[12][26]);
 bool verifierTuilesAdjacentes(Tuile Plateau[12][26], int x, int y);
 void choisirEmplacementTuile(Tuile Plateau[12][26], Tuile tuileChoisie);
-
+void choisirTuilePupitre(Joueur pupitre[PUPITRE], int nbTuiles, Joueur nom[PSEUDO]);
+void emplacementXY(Tuile Plateau[12][26], Tuile tuileChoisie);
+void echangerTuiles(Joueur pupitre[PUPITRE], Tuile pioche[TNORMALE], Tuile temp[1]);
 
 
 #endif //PROJETQWIRKLE_PLATEAU_H
