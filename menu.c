@@ -1,6 +1,6 @@
 #include "menu.h"
 #include "tableau.h"
-
+#include "Plateau.h"
 int afficherMenu(){
     int choix;
     printf("1 Piocher\n"
@@ -19,10 +19,12 @@ void regles(){
     printf("ajoutées à cette ligne doivent avoir la même caractéristique que les tuiles qui se trouvent déjà sur la ligne. \nIl peut arriver qu’il y ait des places sur la ligne où aucune tuile ne peut être ajoutée.\n  Une ligne de formes ne peut avoir qu’une tuile de chacune des six couleurs. Par exemple,\n il ne peut y avoir qu’un seul carré orange dans une ligne de carrés.\n Une ligne de couleur ne peut avoir qu’une tuile de chacune des six formes. Parexemple,\n il ne peut y avoir qu’un rond jaune dans une ligne de jaune.\n Echanger des tuiles Lorsque c’est votre tour,\n vous pouvez choisir d’échanger tout ou partie de vos tuiles au lieu de les ajouter à une ligne. \nDans ce cas, vous devez indiquer les tuiles à échanger, puis tirer le même nombre de tuiles de la réserve (l’interface de votre jeu devra permettre cela).\n Si vous ne pouvez pas ajouter de tuiles à une ligne, vous devez échanger tout ou partie de vos tuiles et passer votre tour.\n Calcul des points Quand  vous  créez  une  ligne, \n vous marquez 1  point  pour  chaque  tuile  présente dans  la  ligne.\n  Quand vous ajoutez une tuile à une ligne existante, vous marquez 1 point pour chaque tuile de cette ligne, y compris les tuiles qui se trouvaient au préalable sur cette ligne.\n Une tuile peut rapporter 2 points si elle appartient à deux lignes différentes. \nVoir Exemples de parties pour  des  explications  détaillées.\n  Vous  marquez  6  points  supplémentaires  chaque  fois  que  vous terminez une ligne de six tuiles.\n Les six tuiles doivent être de même couleur, tout en ayant une forme différente OU de même forme, tout en ayant une couleur différente.\n Une ligne de six tuiles est appelée un Qwirkle(6 points supplémentaires).\n  Les  lignes  de  plus  de  six  tuiles  sont  interdites.\n  Le  joueur  qui  termine  la  partie  obtient  6  points supplémentaires. ");
 }
 
-
-void jeu(DonneesJeu* jeu) {
+void bouclejeu(){
+    DonneesJeu* jeu;
     int nbJ = 0;
     int mode = 0;
+    int fin = 0;
+    Tuile Plateau[12][26];
     Tuile pioche1[TDEGRADE];
     Tuile pioche2[TNORMALE];
     DegradeInit(pioche1);
@@ -196,6 +198,22 @@ void jeu(DonneesJeu* jeu) {
             }
             break;
         }
+    }
+}
+
+void jeu(DonneesJeu* jeu) {
+    int nbJ = 0;
+    int mode = 0;
+    int fin = 0;
+    Tuile Plateau[12][26];
+    Tuile pioche1[TDEGRADE];
+    Tuile pioche2[TNORMALE];
+    DegradeInit(pioche1);
+    normalInit(pioche2);
+    initialiserPlateau(Plateau);
+    while (fin == 0){
+        afficherMenu();
+        bouclejeu();
     }
 }
 /*

@@ -12,6 +12,8 @@
 #include "Macro.h"
 
 void jeu(DonneesJeu* jeu);
+int afficherMenu();
+void bouclejeu();
 void nouvellepartie();
 
 void reglesdujeu();
