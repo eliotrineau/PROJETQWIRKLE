@@ -26,8 +26,8 @@ int main(){
     //char symbole;
     //pioche(a);
     //distribuerTuilesNormal(joueurs,a,taille2,j);
-    distribuerTuilesDegrade(joueurs,a,taille,j);
-    afficherMainJoueur(joueurs[0],b);
+    //distribuerTuilesDegrade(joueurs,a,taille,j);
+    afficherMainJoueur(&joueurs[0],b);
     //remplirPupitreDegrade(joueurs,b,taille,1);
     //test(a,t);
     //normalInit(a);

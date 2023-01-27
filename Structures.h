@@ -6,29 +6,34 @@
 #include "Bibliotheques.h"
 
 typedef struct {
+    int i,j;
+    int couleurchoix;
+    int symbolechoix;
     char couleur[CHARCOULEUR];
     char symbole[SYMBOLE];
     char couleurSymbole[CHARCOULEUR]; // couleur de la tuile
     bool vide; // si la case du plateau est vide
-    bool couleurRouge; // bool pour verifier la couleur || l'attribuer
-    bool couleurOrange; // bool pour verifier la couleur || l'attribuer
-    bool couleurJaune; // bool pour verifier la couleur || l'attribuer
-    bool couleurVert; // bool pour verifier la couleur || l'attribuer
-    bool couleurBleu; // bool pour verifier la couleur || l'attribuer
-    bool couleurViolet; // bool pour verifier la couleur || l'attribuer
     int tuileDistribue;
 }Tuile;
 
+typedef struct{
+    Tuile plateau[12][26];
+}DonneesPlateau;
+typedef struct {
+    Tuile* pioche;
+}DonneesPioche;
 typedef struct {
     int nbJoueur;
 }DonneesJeu;
 
 
+
+
 typedef struct {
-    int main[PUPITRE];
     char pupitre[PUPITRE]; // tableau auto de taille 6 (main du joueur)
     int score; // score du joueur
     char nom[PSEUDO]; // pseudo du joueur
+    Tuile main[PUPITRE];
 }Joueur;
 
 

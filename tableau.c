@@ -88,60 +88,100 @@ void DegradeInit(Tuile tuile[TDEGRADE]){
     //}
 
 }
+void verifSymboleDegrade(Tuile tuile[TDEGRADE],Tuile t){
+    DegradeInit(tuile);
+    for (int i = 0; i < TDEGRADE; ++i) {
+        tuile[i].symbolechoix = 0;
+    }
+
+    for (int i = 0; i < SYMBOLE; ++i) {
+        tuile[i].symbolechoix=1;
+    }
+    for (int i = SYMBOLE; i < 2*SYMBOLE; ++i) {
+        tuile[i].symbolechoix=2;
+    }
+    for (int i = 2*SYMBOLE; i < 3*SYMBOLE; ++i) {
+        tuile[i].symbolechoix=3;
+    }
+    for (int i = 3*SYMBOLE; i < 4*SYMBOLE; ++i) {
+        tuile[i].symbolechoix=4;
+    }
+    for (int i = 4*SYMBOLE; i < 5*SYMBOLE; ++i) {
+        tuile[i].symbolechoix=5;
+    }
+    for (int i = 5*SYMBOLE; i < 6*SYMBOLE; ++i) {
+        tuile[i].symbolechoix=6;
+    }
+    for (int i = 0; i < TDEGRADE; ++i) {
+        if (tuile[i].symbolechoix==1){
+            printf("1\n");
+        }
+        else if (tuile[i].symbolechoix==2){
+            printf("2\n");
+        }
+        else if (tuile[i].symbolechoix==3){
+            printf("3\n");
+        }
+        else if (tuile[i].symbolechoix==4){
+            printf("4\n");
+        }
+        else if (tuile[i].symbolechoix==5){
+            printf("5\n");
+        }
+        else if (tuile[i].symbolechoix==6){
+            printf("6\n");
+        }
+    }
+}
 
 void verifCouleurDegrade(Tuile tuile[TDEGRADE],Tuile t){
     DegradeInit(tuile);
     for (int i = 0; i < TDEGRADE; ++i) {
-        tuile[i].couleurRouge = false;
-        tuile[i].couleurOrange = false;
-        tuile[i].couleurJaune = false;
-        tuile[i].couleurVert = false;
-        tuile[i].couleurBleu = false;
-        tuile[i].couleurViolet = false;
+        tuile[i].couleurchoix = 0;
     }
 
-    for (int i = 0; i < COULEUR; ++i) {
-        tuile[i].couleurRouge=true;
+    for (int i = 0; i < SYMBOLE; ++i) {
+        tuile[i].couleurchoix=1;
     }
-    for (int i = COULEUR; i < 2*COULEUR; ++i) {
-        tuile[i].couleurOrange=true;
+    for (int i = SYMBOLE; i < 2*SYMBOLE; ++i) {
+        tuile[i].couleurchoix=2;
     }
-    for (int i = 2*COULEUR; i < 3*COULEUR; ++i) {
-        tuile[i].couleurJaune=true;
+    for (int i = 2*SYMBOLE; i < 3*SYMBOLE; ++i) {
+        tuile[i].couleurchoix=3;
     }
-    for (int i = 3*COULEUR; i < 4*COULEUR; ++i) {
-        tuile[i].couleurVert=true;
+    for (int i = 3*SYMBOLE; i < 4*SYMBOLE; ++i) {
+        tuile[i].couleurchoix=4;
     }
-    for (int i = 4*COULEUR; i < 5*COULEUR; ++i) {
-        tuile[i].couleurBleu=true;
+    for (int i = 4*SYMBOLE; i < 5*SYMBOLE; ++i) {
+        tuile[i].couleurchoix=5;
     }
-    for (int i = 5*COULEUR; i < 6*COULEUR; ++i) {
-        tuile[i].couleurViolet=true;
+    for (int i = 5*SYMBOLE; i < 6*SYMBOLE; ++i) {
+        tuile[i].couleurchoix=6;
     }
     for (int i = 0; i < TDEGRADE; ++i) {
-        if (tuile[i].couleurRouge==true){
+        if (tuile[i].couleurchoix==1){
             printf("rouge\n");
         }
-        else if (tuile[i].couleurOrange==true){
+        else if (tuile[i].couleurchoix==2){
             printf("orange\n");
         }
-        else if (tuile[i].couleurJaune==true){
+        else if (tuile[i].couleurchoix==3){
             printf("jaune\n");
         }
-        else if (tuile[i].couleurVert==true){
+        else if (tuile[i].couleurchoix==4){
             printf("vert\n");
         }
-        else if (tuile[i].couleurBleu==true){
+        else if (tuile[i].couleurchoix==5){
             printf("bleu\n");
         }
-        else if (tuile[i].couleurViolet==true){
+        else if (tuile[i].couleurchoix==6){
             printf("violet\n");
         }
     }
 }
 
 void normalInit(Tuile tuile[TNORMALE]){
-    strcpy(tuile[0].couleurSymbole,"\033[31m1\033[0m");
+    strcpy(tuile[0].couleurSymbole,"");
     strcpy(tuile[1].couleurSymbole,"\033[31m2\033[0m");
     strcpy(tuile[2].couleurSymbole,"\033[31m3\033[0m");
     strcpy(tuile[3].couleurSymbole,"\033[31m4\033[0m");
@@ -258,92 +298,171 @@ void normalInit(Tuile tuile[TNORMALE]){
     //}
 }
 
+void verifSymboleNormal(Tuile tuile[TDEGRADE],Tuile t){
+    normalInit(tuile);
+    for (int i = 0; i < TNORMALE; ++i) {
+        tuile[i].symbolechoix=0;
+    }
+
+    for (int i = 0; i < SYMBOLE; ++i) {
+        tuile[i].symbolechoix==1;
+    }
+    for (int i = SYMBOLE; i < 2*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==2;
+    }
+    for (int i = 2*SYMBOLE; i < 3*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==3;
+    }
+    for (int i = 3*SYMBOLE; i < 4*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==4;
+    }
+    for (int i = 4*SYMBOLE; i < 5*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==5;
+    }
+    for (int i = 5*SYMBOLE; i < 6*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==6;
+    }
+
+    for (int i = 6*SYMBOLE; i < 7*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==1;
+    }
+    for (int i = 7*SYMBOLE; i < 8*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==2;
+    }
+    for (int i = 8*SYMBOLE; i < 9*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==3;
+    }
+    for (int i = 9*SYMBOLE; i < 10*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==4;
+    }
+    for (int i = 10*SYMBOLE; i < 11*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==5;
+    }
+    for (int i = 11*SYMBOLE; i < 12*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==6;
+    }
+
+    for (int i = 12*SYMBOLE; i < 13*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==1;
+    }
+    for (int i = 13*SYMBOLE; i < 14*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==2;
+    }
+    for (int i = 14*SYMBOLE; i < 15*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==3;
+    }
+    for (int i = 15*SYMBOLE; i < 16*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==4;
+    }
+    for (int i = 16*SYMBOLE; i < 17*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==5;
+    }
+    for (int i = 17*SYMBOLE;i < 18*SYMBOLE; ++i) {
+        tuile[i].symbolechoix==6;
+    }
+
+    for (int i = 0; i < TNORMALE; ++i) {
+        if (tuile[i].symbolechoix==1){
+            printf("1\n");
+        }
+        else if (tuile[i].symbolechoix==2){
+            printf("2\n");
+        }
+        else if (tuile[i].symbolechoix==3){
+            printf("3\n");
+        }
+        else if (tuile[i].symbolechoix==4){
+            printf("4\n");
+        }
+        else if (tuile[i].symbolechoix==5){
+            printf("5\n");
+        }
+        else if (tuile[i].symbolechoix==6){
+            printf("6\n");
+        }
+    }
+}
 
 void verifCouleurNormal(Tuile tuile[TNORMALE],Tuile t){
     normalInit(tuile);
     for (int i = 0; i < TNORMALE; ++i) {
-        tuile[i].couleurRouge = false;
-        tuile[i].couleurOrange = false;
-        tuile[i].couleurJaune = false;
-        tuile[i].couleurVert = false;
-        tuile[i].couleurBleu = false;
-        tuile[i].couleurViolet = false;
+        tuile[i].couleurchoix=0;
     }
 
-    for (int i = 0; i < COULEUR; ++i) {
-        tuile[i].couleurRouge=true;
+    for (int i = 0; i < SYMBOLE; ++i) {
+        tuile[i].couleurchoix==1;
     }
-    for (int i = COULEUR; i < 2*COULEUR; ++i) {
-        tuile[i].couleurOrange=true;
+    for (int i = SYMBOLE; i < 2*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==2;
     }
-    for (int i = 2*COULEUR; i < 3*COULEUR; ++i) {
-        tuile[i].couleurJaune=true;
+    for (int i = 2*SYMBOLE; i < 3*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==3;
     }
-    for (int i = 3*COULEUR; i < 4*COULEUR; ++i) {
-        tuile[i].couleurVert=true;
+    for (int i = 3*SYMBOLE; i < 4*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==4;
     }
-    for (int i = 4*COULEUR; i < 5*COULEUR; ++i) {
-        tuile[i].couleurBleu=true;
+    for (int i = 4*SYMBOLE; i < 5*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==5;
     }
-    for (int i = 5*COULEUR; i < 6*COULEUR; ++i) {
-        tuile[i].couleurViolet=true;
-    }
-
-    for (int i = 6*COULEUR; i < 7*COULEUR; ++i) {
-        tuile[i].couleurRouge=true;
-    }
-    for (int i = 7*COULEUR; i < 8*COULEUR; ++i) {
-        tuile[i].couleurOrange=true;
-    }
-    for (int i = 8*COULEUR; i < 9*COULEUR; ++i) {
-        tuile[i].couleurJaune=true;
-    }
-    for (int i = 9*COULEUR; i < 10*COULEUR; ++i) {
-        tuile[i].couleurVert=true;
-    }
-    for (int i = 10*COULEUR; i < 11*COULEUR; ++i) {
-        tuile[i].couleurBleu=true;
-    }
-    for (int i = 11*COULEUR; i < 12*COULEUR; ++i) {
-        tuile[i].couleurViolet=true;
+    for (int i = 5*SYMBOLE; i < 6*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==6;
     }
 
-    for (int i = 12*COULEUR; i < 13*COULEUR; ++i) {
-        tuile[i].couleurRouge=true;
+    for (int i = 6*SYMBOLE; i < 7*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==1;
     }
-    for (int i = 13*COULEUR; i < 14*COULEUR; ++i) {
-        tuile[i].couleurOrange=true;
+    for (int i = 7*SYMBOLE; i < 8*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==2;
     }
-    for (int i = 14*COULEUR; i < 15*COULEUR; ++i) {
-        tuile[i].couleurJaune=true;
+    for (int i = 8*SYMBOLE; i < 9*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==3;
     }
-    for (int i = 15*COULEUR; i < 16*COULEUR; ++i) {
-        tuile[i].couleurVert=true;
+    for (int i = 9*SYMBOLE; i < 10*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==4;
     }
-    for (int i = 16*COULEUR; i < 17*COULEUR; ++i) {
-        tuile[i].couleurBleu=true;
+    for (int i = 10*SYMBOLE; i < 11*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==5;
     }
-    for (int i = 17*COULEUR; i < 18*COULEUR; ++i) {
-        tuile[i].couleurViolet=true;
+    for (int i = 11*SYMBOLE; i < 12*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==6;
+    }
+
+    for (int i = 12*SYMBOLE; i < 13*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==1;
+    }
+    for (int i = 13*SYMBOLE; i < 14*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==2;
+    }
+    for (int i = 14*SYMBOLE; i < 15*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==3;
+    }
+    for (int i = 15*SYMBOLE; i < 16*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==4;
+    }
+    for (int i = 16*SYMBOLE; i < 17*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==5;
+    }
+    for (int i = 17*SYMBOLE; i < 18*SYMBOLE; ++i) {
+        tuile[i].couleurchoix==6;
     }
 
     for (int i = 0; i < TNORMALE; ++i) {
-        if (tuile[i].couleurRouge==true){
+        if (tuile[i].couleurchoix==1){
             printf("rouge\n");
         }
-        else if (tuile[i].couleurOrange==true){
+        else if (tuile[i].couleurchoix==2){
             printf("orange\n");
         }
-        else if (tuile[i].couleurJaune==true){
+        else if (tuile[i].couleurchoix==3){
             printf("jaune\n");
         }
-        else if (tuile[i].couleurVert==true){
+        else if (tuile[i].couleurchoix==4){
             printf("vert\n");
         }
-        else if (tuile[i].couleurBleu==true){
+        else if (tuile[i].couleurchoix==5){
             printf("bleu\n");
         }
-        else if (tuile[i].couleurViolet==true){
+        else if (tuile[i].couleurchoix==6){
             printf("violet\n");
         }
     }
@@ -379,16 +498,17 @@ void distribuerTuilesDegrade(Joueur joueurs[NBJMAX], Tuile pioche[TDEGRADE], int
         for (int j = 0; j < PUPITRE; j++) {
             do {
                 PiocherUneTuile(&tuileAPiocher, pioche, taille);
-                printf("%s\n",tuileAPiocher.couleurSymbole);
                 remplissage++;
-                if (remplissage >= jeu.nbJoueur*6){
+                if (remplissage >= TDEGRADE) {
                     printf("Tous les pupitres de joueur sont pleins\n");
                     printf("Il reste %d tuiles dans la pioche\n",*taille);
+                    break;
                 }
             }
             while (tuileAPiocher.tuileDistribue == -1);
             tuileAPiocher.tuileDistribue = -1;
-            strcpy(&joueurs[i].pupitre[j],tuileAPiocher.couleurSymbole);
+            joueurs[i].main[j] = tuileAPiocher;
+            strcpy(joueurs->main[i].couleurSymbole,tuileAPiocher.couleurSymbole);
         }
     }
 }
@@ -412,7 +532,7 @@ void distribuerTuilesNormal(Joueur joueurs[NBJMAX], Tuile pioche[TNORMALE], int*
             }
             while (tuileAPiocher.tuileDistribue == -1);
             tuileAPiocher.tuileDistribue = -1;
-            strcpy(&joueurs[i].pupitre[j],tuileAPiocher.couleurSymbole);
+            strcpy(joueurs->main[i].couleurSymbole,tuileAPiocher.couleurSymbole);
         }
     }
 }
@@ -459,51 +579,245 @@ void remplirPupitreNormal(Joueur* joueur, Tuile pioche[], int* taillePioche, int
     }
 }
 
-void copierTuileJoueur(Tuile tuile, Joueur* joueur, int index) {
-    strcpy(&joueur->pupitre[index],tuile.couleurSymbole);
-    joueur->main[index] = tuile.tuileDistribue;
+
+void afficherMainJoueur(Joueur j) {
+    printf("Main du joueur : ");
+    for (int i = 0; i < PUPITRE; i++) {
+        printf("Tuile %d :",i);
+        tuile(j.main[i]);
+    }
+    printf("\n");
 }
 
-void afficherMainJoueur(Joueur joueur,Tuile tuile[TDEGRADE]) {
-    DonneesJeu jeu;
-    jeu.nbJoueur = 2;
-    int* taille = NULL;
-    int degrade = 36;
-    taille = &degrade;
-    DegradeInit(tuile);
-    distribuerTuilesDegrade(&joueur,tuile,taille,jeu);
-    printf("Main du joueur %s : \n",joueur.nom);
-    for (int i = 0; i < 1; i++) {
-        if (joueur.main[i] == 0){
-            printf("%s\n",&tuile->couleurSymbole[0]);
+void tuile(Tuile tuile) {
+    switch(tuile.couleurchoix) {
+        case 1: {
+            switch (tuile.symbolechoix) {
+                case 1:{
+                    printf("\033[31m1\033[0m");
+                }break;
+                case 2:{
+                    printf("\033[31m2\033[0m");
+                }break;
+                case 3:{
+                    printf("\033[31m3\033[0m");
+                }break;
+                case 4:{
+                    printf("\033[31m4\033[0m");
+                }break;
+                case 5:{
+                    printf("\033[31m5\033[0m");
+                }break;
+                case 6:{
+                    printf("\033[31m6\033[0m");
+                }break;
+            }
+        }break;
+        case 2:{
+            switch (tuile.symbolechoix) {
+                case 1:{
+                    printf("\033[38;2;255;165;0m1\033[0m");
+                }break;
+                case 2:{
+                    printf("\033[38;2;255;165;0m2\033[0m");
+                }break;
+                case 3:{
+                    printf("\033[38;2;255;165;0m3\033[0m");
+                }break;
+                case 4:{
+                    printf("\033[38;2;255;165;0m4\033[0m");
+                }break;
+                case 5:{
+                    printf("\033[38;2;255;165;0m5\033[0m");
+                }break;
+                case 6:{
+                    printf("\033[38;2;255;165;0m6\033[0m");
+                }break;
+            }
+        }break;
+        case 3:{
+            switch (tuile.symbolechoix) {
+                case 1:{
+                    printf("\033[33m1\033[0m");
+                }break;
+                case 2:{
+                    printf("\033[33m2\033[0m");
+                }break;
+                case 3:{
+                    printf("\033[33m3\033[0m");
+                }break;
+                case 4:{
+                    printf("\033[33m4\033[0m");
+                }break;
+                case 5:{
+                    printf("\033[33m5\033[0m");
+                }break;
+                case 6:{
+                    printf("\033[33m6\033[0m");
+                }break;
+            }
+        }break;
+        case 4:{
+            switch (tuile.symbolechoix) {
+                case 1:{
+                    printf("\033[32m1\033[0m");
+                }break;
+                case 2:{
+                    printf("\033[32m2\033[0m");
+                }break;
+                case 3:{
+                    printf("\033[32m3\033[0m");
+                }break;
+                case 4:{
+                    printf("\033[32m4\033[0m");
+                }break;
+                case 5:{
+                    printf("\033[32m5\033[0m");
+                }break;
+                case 6:{
+                    printf("\033[32m6\033[0m");
+                }break;
+            }
+        }break;
+        case 5:{
+            switch (tuile.symbolechoix) {
+                case 1:{
+                    printf("\033[34m1\033[0m");
+                }break;
+                case 2:{
+                    printf("\033[34m2\033[0m");
+                }break;
+                case 3:{
+                    printf("\033[34m3\033[0m");
+                }break;
+                case 4:{
+                    printf("\033[34m4\033[0m");
+                }break;
+                case 5:{
+                    printf("\033[34m5\033[0m");
+                }break;
+                case 6:{
+                    printf("\033[34m6\033[0m");
+                }break;
+            }
+        }break;
+        case 6:{
+            switch (tuile.symbolechoix) {
+                case 1:{
+                    printf("\033[35m1\033[0m");
+                }break;
+                case 2:{
+                    printf("\033[35m2\033[0m");
+                }break;
+                case 3:{
+                    printf("\033[35m3\033[0m");
+                }break;
+                case 4:{
+                    printf("\033[35m4\033[0m");
+                }break;
+                case 5:{
+                    printf("\033[35m5\033[0m");
+                }break;
+                case 6:{
+                    printf("\033[35m6\033[0m");
+                }break;
+            }
         }
-        if (joueur.main[i] == 1){
-            printf("%s\n",&tuile->couleurSymbole[1]);
-        }
-        if (joueur.main[i] == 2){
-            printf("%s\n",&tuile->couleurSymbole[2]);
-        }
-        if (joueur.main[i] == 3){
-            printf("%s\n",&tuile->couleurSymbole[3]);
-        }
-        if (joueur.main[i] == 4){
-            printf("%s\n",&tuile->couleurSymbole[4]);
-        }
-        if (joueur.main[i] == 5){
-            printf("%s\n",&tuile->couleurSymbole[5]);
-        }
-        printf("%s ", &joueur.pupitre[i]);
     }
 }
 
 
-void afficherMainJoueurActualisation(Joueur joueur, Tuile tuiles[TNORMALE], int nbTuiles) {
+
+
+void choixTuile(Joueur* joueur,DonneesPlateau* plateau,int i,int j){
+    int choix = 0;
+    printf("Quelle tuile voulez-vous posez ?(0 a 5]\n");
+    scanf("%d", &choix);
+    switch (choix) {
+        case 0:{
+            plateau->plateau[i][j] = joueur->main[choix];
+            plateau->plateau[i][j].i = i;
+            plateau->plateau[i][j].j = j;
+            joueur->main[choix].i = 0;
+            joueur->main[choix].j = 0;
+            joueur->main[choix].couleurchoix = '\0';
+            joueur->main[choix].symbolechoix = '\0';
+        }break;
+        case 1:{
+            plateau->plateau[i][j] = joueur->main[choix];
+            plateau->plateau[i][j].i = i;
+            plateau->plateau[i][j].j = j;
+            joueur->main[choix].i = 0;
+            joueur->main[choix].j = 0;
+            joueur->main[choix].couleurchoix = '\0';
+            joueur->main[choix].symbolechoix = '\0';
+        }break;
+        case 2:{
+            plateau->plateau[i][j] = joueur->main[choix];
+            plateau->plateau[i][j].i = i;
+            plateau->plateau[i][j].j = j;
+            joueur->main[choix].i = 0;
+            joueur->main[choix].j = 0;
+            joueur->main[choix].couleurchoix = '\0';
+            joueur->main[choix].symbolechoix = '\0';
+        }break;
+        case 3:{
+            plateau->plateau[i][j] = joueur->main[choix];
+            plateau->plateau[i][j].i = i;
+            plateau->plateau[i][j].j = j;
+            joueur->main[choix].i = 0;
+            joueur->main[choix].j = 0;
+            joueur->main[choix].couleurchoix = '\0';
+            joueur->main[choix].symbolechoix = '\0';
+        }break;
+        case 4:{
+            plateau->plateau[i][j] = joueur->main[choix];
+            plateau->plateau[i][j].i = i;
+            plateau->plateau[i][j].j = j;
+            joueur->main[choix].i = 0;
+            joueur->main[choix].j = 0;
+            joueur->main[choix].couleurchoix = '\0';
+            joueur->main[choix].symbolechoix = '\0';
+        }break;
+        case 5:{
+            plateau->plateau[i][j] = joueur->main[choix];
+            plateau->plateau[i][j].i = i;
+            plateau->plateau[i][j].j = j;
+            joueur->main[choix].i = 0;
+            joueur->main[choix].j = 0;
+            joueur->main[choix].couleurchoix = '\0';
+            joueur->main[choix].symbolechoix = '\0';
+        }break;
+        default:
+            printf("ressaisir choix :\n");
+            scanf("%d",&choix);
+    }
+}
+
+void afficherMainJoueurActualisation(DonneesPioche *pioche, int nbTuiles) {
     for (int i = 0; i < PUPITRE; i++) {
-        for (int j = 0; j < nbTuiles; j++) {
-            if(tuiles[j].tuileDistribue == i && tuiles[j].tuileDistribue != -1 ) {
-                printf("Tuile %d: %s\n", i+1, tuiles[j].couleurSymbole);
+        if (*pioche->pioche[i].couleurSymbole=='\0'){
+            for (int j = i; j < *pioche->pioche[i].couleurSymbole=='\0'; j++) {
+                pioche->pioche[j]=pioche->pioche[j+1]; // decale la pioche pour enlever la tuile
+                }
             }
-        }
+        }printf("Pioche a jour.\n");
+}
+
+void modeDejeu(int* mode,int* nbTuiles){
+    printf("Mode degrade (36 Tuiles : TAPER 0)\nmode normal (108 Tuiles : TAPER 1)\n");
+    scanf("%d",mode);
+    switch (*mode) {
+        case 0:{
+            *nbTuiles = TDEGRADE;
+        }break;
+        case 1:{
+            *nbTuiles = TNORMALE;
+        }break;
+        default:
+            printf("ressaisir mode :\nMode degrade (36 Tuiles : TAPER 0)\nmode normal (108 Tuiles : TAPER 1)\n");
+            scanf("%d",mode);
+            break;
     }
 }
 

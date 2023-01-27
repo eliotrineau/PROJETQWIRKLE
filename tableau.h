@@ -15,10 +15,12 @@ void distribuerTuilesDegrade(Joueur joueurs[NBJMAX], Tuile pioche[TDEGRADE], int
 void distribuerTuilesNormal(Joueur joueurs[NBJMAX], Tuile pioche[TNORMALE], int* taille, DonneesJeu jeu);
 void remplirPupitreDegrade(Joueur* joueur, Tuile pioche[], int* taillePioche, int nbTuilesPosees);
 void remplirPupitreNormal(Joueur* joueur, Tuile pioche[], int* taillePioche, int nbTuilesPosees);
-void copierTuileJoueur(Tuile tuile, Joueur* joueur, int index);
-void afficherMainJoueur(Joueur joueur,Tuile tuile[TDEGRADE]);
-void afficherMainJoueurActualisation(Joueur joueur, Tuile tuiles[TNORMALE], int nbTuiles);
-
+void afficherMainJoueur(Joueur j);
+void afficherMainJoueurActualisation(DonneesPioche *pioche, int nbTuiles);
+void choixTuiles(Joueur joueur);
+void verifSymboleDegrade(Tuile tuile[TDEGRADE],Tuile t);
+void tuile(Tuile tuile);
+void choixTuile(Joueur* joueur,DonneesPlateau* plateau,int i,int j);
 void test(Tuile tuile[DEGRADE],Tuile t);
 
 #endif
