@@ -33,6 +33,7 @@ typedef struct {
     char pupitre[PUPITRE]; // tableau auto de taille 6 (main du joueur)
     int score; // score du joueur
     char nom[PSEUDO]; // pseudo du joueur
+    Tuile main[6];
 }Joueur;
 
 
