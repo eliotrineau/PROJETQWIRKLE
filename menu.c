@@ -21,6 +21,7 @@ void regles(){
 
 void bouclejeu(int* mode,Joueur j[],Tuile pioche,int* taille,DonneesJeu jeu,DonneesPlateau plateau,Tuile Plateau[12][26]){
     int fin = 0;
+    int terminer = 0;
     int* joueurActuel = NULL;
     int choix = afficherMenu();
     while (fin == 0){
@@ -28,9 +29,16 @@ void bouclejeu(int* mode,Joueur j[],Tuile pioche,int* taille,DonneesJeu jeu,Donn
             case 0:{
                 switch (choix) {
                     case 1:{
-                        int nbTuilesPosees=0;
-                        remplirPupitreDegrade(j,&pioche,taille,nbTuilesPosees);
-                        afficherPlateau(Plateau);
+                        do {
+                            int nbTuilesPosees=0;
+                            remplirPupitreDegrade(j,&pioche,taille,nbTuilesPosees);
+                            afficherPlateau(Plateau);
+                            emplacementXY(Plateau,pioche);
+                            calculerScore(plateau,jeu,j);
+                            afficherPlateau(Plateau);
+                            printf("Avez-vous termine le tour ?\n(OUI 1)\n(NON 0)\n");
+                            scanf("%d",&terminer);
+                        } while (terminer != 1);
                     }break;
                     case 2:{
                         ///fonction echange tuiles
@@ -41,7 +49,7 @@ void bouclejeu(int* mode,Joueur j[],Tuile pioche,int* taille,DonneesJeu jeu,Donn
                             exit(1);
                     }break;
                     case 4:{
-                        calculerScore(plateau,jeu,j);
+                        afficherScore(jeu,j);
                     }break;
                     case 5:{
                         passerJSuivant(j,jeu.nbJoueur,joueurActuel);
@@ -67,7 +75,7 @@ void bouclejeu(int* mode,Joueur j[],Tuile pioche,int* taille,DonneesJeu jeu,Donn
                         exit(1);
                     }break;
                     case 4:{
-                        calculerScore(plateau,jeu,j);
+                        afficherScore(jeu,j);
                     }break;
                     case 5:{
                         passerJSuivant(j,jeu.nbJoueur,joueurActuel);
@@ -483,6 +491,12 @@ int calculerScore(DonneesPlateau plateau, DonneesJeu jeu, Joueur* joueur) {
     joueur->score+=score;
     printf("%d",joueur->score);
     return score;
+}
+
+int afficherScore(DonneesJeu jeu,Joueur joueur[4]){
+    for (int i = 0; i < jeu.nbJoueur; ++i) {
+        printf("%d",joueur->score);
+    }
 }
 
 void passerJSuivant(Joueur* joueurs, int nbJoueur, int* joueurActuel) {
