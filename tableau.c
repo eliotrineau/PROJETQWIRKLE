@@ -818,3 +818,4 @@ void modeDejeu(int* mode,int* nbTuiles){
 }
 
 
+//commit
